@@ -9,7 +9,8 @@ Last Updated: Sept 11th, 2017
 
 from pymc3 import Model, sample, forestplot
 from pymc3.distributions.multivariate import MvNormal
-from pymc3.gp.cov import ExpQuad
+from pymc3.step_methods.metropolis import Metropolis
+
 import numpy as np
 import theano.tensor as tt
 
@@ -116,7 +117,7 @@ class MCMC4Posterior(object):
 
 	def run(self, pymc3Model, draws):
 		with pymc3Model:
-			trace = sample(draws, init = 'nuts', n_init = 250);
+			trace = sample(draws, step = Metropolis(), init = 'nuts', n_init = 250, njobs = 8);
 
 		return trace;
 
