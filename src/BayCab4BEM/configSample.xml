@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<runSimulatorConfig>
+<calibration_parameter>
+    <name>extWallInsuThickness</name>
+    <keys number="3">
+        <key>Material</key>>
+        <key>foam_polyisocyanate_105mm</key>
+        <key>2</key>
+    </keys>
+    <range>
+        <max>0.105</max>
+        <min>0.05</min>
+    </range>
+    <description>
+        The external wall insulation thickness.
+   </description>
+</calibration_parameter>
+
+<calibration_parameter>
+    <name>equipLoadLow</name>
+    <keys number="3">
+        <key>ElectricEquipment</key>>
+        <key>kitchen Equipment 1</key>
+        <key>5</key>
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-bapp Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-weili Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-nina Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-volker Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-erica Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-james Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-vivian Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-omer Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>largeConf1 Equipment 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-annie Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>largeConf0 Equipment 1</key>
+        <key>5</key> 
+    </keys>
+    <keys number='3'>
+        <key>ElectricEquipment</key>>
+        <key>off-surekha Computing gain 1</key>
+        <key>5</key> 
+    </keys>
+    <range>
+        <max>15</max>
+        <min>5</min>
+    </range>
+    <description>The low equipment density.</description>
+</calibration_parameter>
+
+<output>
+    <name>Outdoor Air Temperature</name>
+    <keys number="1">
+        <key>Environment:Site Outdoor Air Drybulb Temperature [C](Hourly)</key>>
+    </keys>
+    <description>Not wish to say.</description>
+</output>
+<output>
+    <name>IW North Zones Average Temperature</name>
+    <keys number="1">
+        <key>EMS:IW North Zone Average Temperature [C](TimeStep)</key>>
+    </keys>
+    <description>IW North Zones Average Temperature</description>
+</output>
+
+</runSimulatorConfig>

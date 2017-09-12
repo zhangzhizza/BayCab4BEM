@@ -1,0 +1,5 @@
+pyDOE
+numpy
+scipy
+theano
+pyMC3
