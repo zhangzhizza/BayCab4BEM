@@ -7,6 +7,7 @@ First Created: Sept 1st, 2017
 Last Updated: Sept 5th, 2017
 """
 from multiprocessing import Lock
+from pymc3.gp.cov import ExpQuad
 
 import threading
 import itertools
@@ -106,7 +107,7 @@ class MultiThreadingCovMatWrapper():
 		globalLock.release()
 
 
-def getCovMat(data, beta, lambdaVal, data_row, data_col):
+def getCovMat_numpyImp(data, beta, lambdaVal, data_row, data_col):
 	"""
 	The function returns the covariance matrix using the etaKernelFunction.
 
@@ -146,3 +147,12 @@ def getCovMat(data, beta, lambdaVal, data_row, data_col):
 	ret = tt.exp(negSum)/lambdaVal;
 	print ('time', time.time() - timest)
 	return ret;
+
+
+def getCovMat_pymcNat(data, beta, lambdaVal, data_row, data_col):
+
+	l_beta = tt.sqrt(0.5 / beta);
+
+	sigma_eta = (1 / lambdaVal) * ExpQuad(input_dim=data_col, lengthscales=l_beta) 
+
+	return sigma_eta(data);

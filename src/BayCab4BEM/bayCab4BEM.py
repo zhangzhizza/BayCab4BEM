@@ -8,6 +8,7 @@ Last Updated: Sept 6th, 2017
 """
 from BayCab4BEM.runSimulator import RunSimulatorWithRandomCaliPara;
 from BayCab4BEM.simulatorChoices import simulatorObjMapping
+from BayCab4BEM.covFuncChoices import covFuncMapping
 from BayCab4BEM.cmbYChoices import cmbYMtdMapping
 from BayCab4BEM.downSampler import DownSampler
 from BayCab4BEM.mcmc import MCMC4Posterior
@@ -22,7 +23,7 @@ import numpy as np
 class BC4BEM(object):
 
 	def run(self, xf_filePath, y_filePath, caliParaConfigPath, simulatorName, baseInputFilePath, 
-			runNumber, maxRunInParallel, cmbYMethodNArgs, simulatorExeInfo):
+			runNumber, maxRunInParallel, cmbYMethodNArgs, simulatorExeInfo, covFuncName):
 		"""
 		Args:
 			xf_filePath, y_filePath: str
@@ -133,7 +134,7 @@ class BC4BEM(object):
 		print ('d fd down', d_field_down.shape);
 		mcmcObj = self._getMCMCModel(z, xf, xc, t);
 		# Build and run
-		mcmcPymcModel = mcmcObj.build();
+		mcmcPymcModel = mcmcObj.build(covFuncMapping[covFuncName]);
 		# Run the model
 		print ('run mcmc')
 		mcmcTrace = mcmcObj.run(mcmcPymcModel, draws = 500);
@@ -156,7 +157,7 @@ class BC4BEM(object):
 								lambda_etaPriorInfo, lambda_deltaPriorInfo, lambda_epsiPriorInfo);
 		return mcmcObj;
 
-	def runWithData(self, fieldDataFile, simDataFile):
+	def runWithData(self, fieldDataFile, simDataFile, covFuncName):
 		"""
 		Most of the following code is taken from Adrian Chong
 		"""
@@ -185,7 +186,7 @@ class BC4BEM(object):
 		# MCMC
 		mcmcObj = self._getMCMCModel(z, xf, xc, tc);
 		# Build and run
-		mcmcPymcModel = mcmcObj.build();
+		mcmcPymcModel = mcmcObj.build(covFuncMapping[covFuncName]);
 		# Run the model
 		print ('run mcmc')
 		mcmcTrace = mcmcObj.run(mcmcPymcModel, draws = 500);

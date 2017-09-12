@@ -6,11 +6,10 @@ Author: Zhiang Zhang
 First Created: Sept 5th, 2017
 Last Updated: Sept 11th, 2017
 """
-from BayCab4BEM.covFunction import getCovMat
 
 from pymc3 import Model, sample, forestplot
 from pymc3.distributions.multivariate import MvNormal
-
+from pymc3.gp.cov import ExpQuad
 import numpy as np
 import theano.tensor as tt
 
@@ -51,7 +50,7 @@ class MCMC4Posterior(object):
 	
 
 
-	def build(self):
+	def build(self, getCovMat):
 		print ('p', self._p);
 		print ('q', self._q);
 		print ('etaLen', len(self._rho_etaPriorInfo));

@@ -9,4 +9,4 @@ maxRun = 5;
 cmbY = [];
 simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './BayCab4BEM/sample/pittsburgh.epw']
 bc4bObj = bc4b.BC4BEM();
-bc4bObj.run(xf, yf, calif, simName, baseIdf, runNum, maxRun, cmbY, simExe)
+bc4bObj.run(xf, yf, calif, simName, baseIdf, runNum, maxRun, cmbY, simExe, 'covFuncPymcNat')
