@@ -3,6 +3,7 @@ import pymc3 as pm
 import theano.tensor as tt
 import theano
 import matplotlib.pyplot as plt
+from pymc3.step_methods.metropolis import Metropolis
 
 
 D_COMP = np.genfromtxt('cal_example_com_withoutSummer.csv', delimiter = ',')
@@ -70,7 +71,7 @@ with pm.Model() as model:
 	mu = np.zeros(n+m)
 	z_obs = pm.MvNormal('z_obs', mu=mu, cov=new_cov, observed=z)
 
-	trace = pm.sample(500, init = 'nuts', n_init = 250);
+	trace = pm.sample(500, step = Metropolis(), init = 'nuts', n_init = 250, n_jobs = 8);
 # l_delta=0.3
 # lambda_delta=1.
 # sigma_delta = theano.function([], sigma_delta(xf))()

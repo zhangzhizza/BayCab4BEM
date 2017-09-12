@@ -29,9 +29,9 @@ class MCMC4Posterior(object):
 			t: np.ndarray
 				2-D, m * q
 			thetaPriorInfo, rho_etaPriorInfo, rho_deltaPriorInfo, lambda_etaPriorInfo, 
-				lambda_deltaPriorInfo, lambda_epsiPriorInfo: 2-D list
-				Each row containins prior distribution info for each parameter, like mean, std, 
-				or max and min. For this impl, each row is [pymc3 dist function, *args for the dist func]
+				lambda_deltaPriorInfo, lambda_epsiPriorInfo: 1-D list
+				It contains the prior distribution info, like mean, std, 
+				or max and min. For this impl, it is is [pymc3 dist function, *args for the dist func]
 		"""
 		
 		self._n = xf.shape[0]; # Number of field observations
@@ -59,31 +59,31 @@ class MCMC4Posterior(object):
 		with Model() as mvNormalLikelihood:
 			# Define priors
 			# For theta
-			theta = [];
-			for theta_i in range(self._q):
-				ith_theta_dist = self._thetaPriorInfo[theta_i][0];
-				ith_theta = ith_theta_dist('theta%d'%theta_i, *self._thetaPriorInfo[theta_i][1:]);
-				theta.append(ith_theta);
-			theta = tt.stack(theta);
+			#theta = [];
+			#for theta_i in range(self._q):
+			theta_dist = self._thetaPriorInfo[0];
+			theta = theta_dist('theta', *self._thetaPriorInfo[1:], shape=self._q);
+				#theta.append(ith_theta);
+			#theta = tt.stack(theta);
 			# ?? theta = self._thetaPriorInfo[0]('theta', *self._thetaPriorInfo[1:], shape = self._q);
 			# For rho_eta
-			rho_eta = [];
-			for rho_eta_i in range(self._p + self._q):
-				ith_rho_eta_dist = self._rho_etaPriorInfo[rho_eta_i][0];
-				ith_rho_eta = ith_rho_eta_dist('rho_eta%d'%rho_eta_i, *self._rho_etaPriorInfo[rho_eta_i][1:]);
-				rho_eta.append(ith_rho_eta);
-			rho_eta = tt.stack(rho_eta);
+			#rho_eta = [];
+			#for rho_eta_i in range(self._p + self._q):
+			rho_eta_dist = self._rho_etaPriorInfo[0];
+			rho_eta = rho_eta_dist('rho_eta', *self._rho_etaPriorInfo[1:], shape = self._p + self._q);
+				#rho_eta.append(ith_rho_eta);
+			#rho_eta = tt.stack(rho_eta);
 			# ?? rho_eta = self._rho_etaPriorInfo[0]('rho_eta', *self._rho_etaPriorInfo[1:], shape = self._m + self._n);
-			beta_eta = -4.0 * np.log(rho_eta);
+			beta_eta = -4.0 * tt.log(rho_eta);
 			# For rho_delta
-			rho_delta = [];
-			for rho_delta_i in range(self._p):
-				ith_rho_delta_dist = self._rho_deltaPriorInfo[rho_delta_i][0];
-				ith_rho_delta = ith_rho_delta_dist('rho_delta%d'%rho_delta_i, *self._rho_deltaPriorInfo[rho_delta_i][1:]);
-				rho_delta.append(ith_rho_delta);
-			rho_delta = tt.stack(rho_delta)
+			#rho_delta = [];
+			#for rho_delta_i in range(self._p):
+			rho_delta_dist = self._rho_deltaPriorInfo[0];
+			rho_delta = rho_delta_dist('rho_delta', *self._rho_deltaPriorInfo[1:], shape = self._p);
+				#rho_delta.append(ith_rho_delta);
+			#rho_delta = tt.stack(rho_delta)
 			# ?? rho_delta = self._rho_deltaPriorInfo[0]('rho_delta', *self._rho_deltaPriorInfo[1:], shape = self._n);
-			beta_delta = -4.0 * np.log(rho_delta);
+			beta_delta = -4.0 * tt.log(rho_delta);
 			# For lambda_eta
 			lambda_eta = self._lambda_etaPriorInfo[0][0]('lambda_eta', *self._lambda_etaPriorInfo[0][1:]);
 			# For lambda delta
