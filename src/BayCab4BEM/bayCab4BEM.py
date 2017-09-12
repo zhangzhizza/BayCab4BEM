@@ -146,12 +146,12 @@ class BC4BEM(object):
 
 	def _getMCMCModel(self, z, xf, xc, t):
 		# Set the prior distributions, taken from Chong(2017) PhD thesis
-		thetaPriorInfo = [[Uniform, 0, 1] for count in range(t.shape[1])];
-		rho_etaPriorInfo = [[Beta, 1, 0.5] for count in range(xc.shape[1] + t.shape[1])];
-		rho_deltaPriorInfo = [[Beta, 1, 0.4] for count in range(xc.shape[1])];
-		lambda_etaPriorInfo = [[Gamma, 10, 10]];
-		lambda_deltaPriorInfo = [[Gamma, 10, 0.3]];
-		lambda_epsiPriorInfo = [[Gamma, 10, 0.03]];
+		thetaPriorInfo = [Uniform, 0, 1];
+		rho_etaPriorInfo = [Beta, 1, 0.5];
+		rho_deltaPriorInfo = [Beta, 1, 0.4];
+		lambda_etaPriorInfo = [Gamma, 10, 10];
+		lambda_deltaPriorInfo = [Gamma, 10, 0.3];
+		lambda_epsiPriorInfo = [Gamma, 10, 0.03];
 		# Construct the mcmc object
 		mcmcObj = MCMC4Posterior(z, xf, xc, t, thetaPriorInfo, rho_etaPriorInfo, rho_deltaPriorInfo, 
 								lambda_etaPriorInfo, lambda_deltaPriorInfo, lambda_epsiPriorInfo);

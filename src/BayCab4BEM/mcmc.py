@@ -85,11 +85,11 @@ class MCMC4Posterior(object):
 			# ?? rho_delta = self._rho_deltaPriorInfo[0]('rho_delta', *self._rho_deltaPriorInfo[1:], shape = self._n);
 			beta_delta = -4.0 * tt.log(rho_delta);
 			# For lambda_eta
-			lambda_eta = self._lambda_etaPriorInfo[0][0]('lambda_eta', *self._lambda_etaPriorInfo[0][1:]);
+			lambda_eta = self._lambda_etaPriorInfo[0]('lambda_eta', *self._lambda_etaPriorInfo[1:]);
 			# For lambda delta
-			lambda_delta = self._lambda_deltaPriorInfo[0][0]('lambda_delta', *self._lambda_deltaPriorInfo[0][1:]);
+			lambda_delta = self._lambda_deltaPriorInfo[0]('lambda_delta', *self._lambda_deltaPriorInfo[1:]);
 			# For lambda_epsi
-			lambda_epsi = self._lambda_epsiPriorInfo[0][0]('lambda_epsi', *self._lambda_epsiPriorInfo[0][1:]);
+			lambda_epsi = self._lambda_epsiPriorInfo[0]('lambda_epsi', *self._lambda_epsiPriorInfo[1:]);
 			
 			# Construct the data
 			data_right = tt.concatenate([tt.tile(theta,(self._n, 1)), self._t], axis=0); 
