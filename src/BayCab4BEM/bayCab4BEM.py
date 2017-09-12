@@ -173,15 +173,19 @@ class BC4BEM(object):
 		# Build and run
 		mcmcPymcModel = mcmcObj.build(covFuncMapping[covFuncName]);
 		# Run the model
-		self._logger.info('MCMC sampling starts run...')
+		self._logger.info('MCMC sampling starts to run...')
 		mcmcTrace = mcmcObj.run(mcmcPymcModel, draws, sampler);
 		self._logger.info('MCMC sampling stopped.')
-
+		# Save the results
 		self._logger.info('Saving the sampling results...')
+		# Save trace plot
 		axTrplt = pm.traceplot(mcmcTrace);
 		fig, axsShow = plt.subplots(*axTrplt.shape);
 		pm.traceplot(mcmcTrace, ax = axsShow);
-		fig.savefig(resPath + '/' + 'mcmcout_traceplot.png')  
+		fig.savefig(resPath + '/' + 'mcmcout_traceplot.png')
+		# Save summary text
+		pm.summary(mcmcTrace, to_file = resPath + '/' + 'mcmcout_summary.csv');
+
 
 		return mcmcTrace;	
 
