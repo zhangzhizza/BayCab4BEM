@@ -179,10 +179,10 @@ class BC4BEM(object):
 		# Save the results
 		self._logger.info('Saving the sampling results...')
 		# Save trace plot
-		axTrplt = pm.traceplot(mcmcTrace);
-		fig, axsShow = plt.subplots(*axTrplt.shape);
-		pm.traceplot(mcmcTrace, ax = axsShow);
-		fig.savefig(resPath + '/' + 'mcmcout_traceplot.png')
+		# axTrplt = pm.traceplot(mcmcTrace);
+		# fig, axsShow = plt.subplots(*axTrplt.shape);
+		# pm.traceplot(mcmcTrace, ax = axsShow);
+		# fig.savefig(resPath + '/' + 'mcmcout_traceplot.png')
 		# Save summary text
 		pm.summary(mcmcTrace, to_file = resPath + '/' + 'mcmcout_summary.csv');
 
