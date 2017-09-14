@@ -6,12 +6,8 @@ Author: Zhiang Zhang
 First Created: Sept 6th, 2017
 Last Updated: Sept 6th, 2017
 """
-from BayCab4BEM.runSimulator import RunSimulatorWithRandomCaliPara;
-from BayCab4BEM.simulatorChoices import simulatorObjMapping
-from BayCab4BEM.covFuncChoices import covFuncMapping
-from BayCab4BEM.cmbYChoices import cmbYMtdMapping
-from BayCab4BEM.downSampler import DownSampler
-from BayCab4BEM.mcmc import MCMC4Posterior
+from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
+from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
 from BayCab4BEM.setPriorInfo import (thetaPriorInfo, rho_etaPriorInfo, rho_deltaPriorInfo,
 									lambda_etaPriorInfo, lambda_deltaPriorInfo, lambda_epsiPriorInfo)
 
@@ -25,10 +21,12 @@ class BC4BEM(object):
 
 	def __init__(self, logger):
 		self._logger = logger;
+		self._MCMC_PACKAGE = {'pymc3': self._getMCMCModel_pymc3,
+							  'pystan': self._getMCMCModel_pystan};
 
-	def run(self, xf_filePath, y_filePath, caliParaConfigPath, simulatorName, baseInputFilePath, 
-			runNumber, maxRunInParallel, cmbYMethodNArgs, simulatorExeInfo, covFuncName, draws,
-			resPath = '.', sampler = 'metropolis'):
+	def runWithSimulation(self, xf_filePath, y_filePath, caliParaConfigPath, simulatorName, 
+						baseInputFilePath, runNumber, maxRunInParallel, cmbYMethodNArgs, 
+						simulatorExeInfo, draws, resPath, sampler, chains, mcmcPackage, *args):
 		"""
 		Args:
 			xf_filePath, y_filePath: str
@@ -112,33 +110,41 @@ class BC4BEM(object):
 		downSampler_dField = DownSampler(d_field, bins = 50, dirichlet_prior = 0.5);
 		(d_field_down, d_field_sp_hist) = downSampler_dField.sample(stSampleSize = 50, increRatio = 1.1, qualityThres = 0.95);
 		##########################################
-		################# MCMC ###################
+		######### MCMC Data Preparation ##########
 		##########################################
 		# Set the input data
 		z = np.append(d_field_down[:, 0], d_sim_down[:, 0]);
 		xf = d_field_down[:, 1:];
 		xc = d_sim_down[:, 1:1 + xf.shape[1]];
 		t = d_sim_down[:, 1 + xf.shape[1]:];
-		mcmcObj = self._getMCMCModel(z, xf, xc, t);
+		##########################################
+		############# MCMC Sampling ##############
+		##########################################
+		mcmcObj = self._MCMC_PACKAGE[mcmcPackage](z, xf, xc, t);
 		# Build and run
-		mcmcPymcModel = mcmcObj.build(covFuncMapping[covFuncName]);
+		mcmcPymcModel = mcmcObj.build(*args);
 		# Run the model
-		mcmcTrace = mcmcObj.run(mcmcPymcModel, draws, sampler);
+		mcmcTrace = mcmcObj.run(mcmcPymcModel, draws, sampler, chains);
 
 		##########################################
 		############### Return ###################
 		##########################################
 		return mcmcTrace;
 
-	def _getMCMCModel(self, z, xf, xc, t):
-
-		# Construct the mcmc object
-		mcmcObj = MCMC4Posterior(z, xf, xc, t, thetaPriorInfo, rho_etaPriorInfo, rho_deltaPriorInfo, 
-								lambda_etaPriorInfo, lambda_deltaPriorInfo, lambda_epsiPriorInfo);
+	def _getMCMCModel_pymc3(self, z, xf, xc, t):
+		# Construct the mcmc object using the pymc3 package
+		mcmcObj = MCMC4Posterior_pymc3(z, xf, xc, t, thetaPriorInfo, rho_etaPriorInfo, rho_deltaPriorInfo, 
+								lambda_etaPriorInfo, lambda_deltaPriorInfo, lambda_epsiPriorInfo, self._logger);
 		return mcmcObj;
 
-	def runWithData(self, fieldDataFile, simDataFile, covFuncName, draws, resPath = '.',
-					sampler = 'metropolis'):
+	def _getMCMCModel_pystan(self, z, xf, xc, t):
+
+		# Construct the mcmc object using the pystan
+		mcmcObj = MCMC4Posterior_pystan(z, xf, xc, t, self._logger);
+		return mcmcObj;
+
+	def runWithData(self, fieldDataFile, simDataFile, draws, resPath, sampler, 
+					mcmcPackage, chains, *args):
 		"""
 		Most of the following code is taken from Adrian Chong
 		"""
@@ -169,12 +175,12 @@ class BC4BEM(object):
 		tc = (tc - tc.min(axis = 0)) / tc.ptp(axis = 0); # Min max norm
 		# MCMC
 		self._logger.info('Building the MCMC sampling object...')
-		mcmcObj = self._getMCMCModel(z, xf, xc, tc);
+		mcmcObj = self._MCMC_PACKAGE[mcmcPackage](z, xf, xc, tc);
 		# Build and run
-		mcmcPymcModel = mcmcObj.build(covFuncMapping[covFuncName]);
+		mcmcPymcModel = mcmcObj.build(*args);
 		# Run the model
 		self._logger.info('MCMC sampling starts to run...')
-		mcmcTrace = mcmcObj.run(mcmcPymcModel, draws, sampler);
+		mcmcTrace = mcmcObj.run(mcmcPymcModel, draws, sampler, chains);
 		self._logger.info('MCMC sampling stopped.')
 		# Save the results
 		self._logger.info('Saving the sampling results...')

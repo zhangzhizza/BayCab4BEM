@@ -3,3 +3,4 @@ numpy
 scipy
 theano
 pyMC3
+sklearn

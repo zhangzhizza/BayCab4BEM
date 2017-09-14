@@ -8,4 +8,5 @@ Last Updated: Sept 6th, 2017
 """
 from BayCab4BEM.cmbYMethods import *
 
-cmbYMtdMapping = {'linear': linearCmbY};
+cmbYMtdMapping = {'linear': linearCmbY,
+				  'pca': pcaCmbY};
