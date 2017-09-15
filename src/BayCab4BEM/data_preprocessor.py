@@ -78,8 +78,10 @@ class Preprocessor(object):
 		##########################################
 		############# Normalize Data #############
 		##########################################
-		# Standarlize xf, y, eta
-		(xf_norm, eta_norm, y_norm) = self._getNormalizedData(xf, eta, y); 
+		# Min Max normalize xf, y, eta
+		xf_norm = self._getMinMaxNormalized(xf);
+		eta_norm = self._getMinMaxNormalized(eta);
+		y_norm = self._getMinMaxNormalized(y); 
 		##########################################
 		#### Construct Data to Required Format ###
 		##########################################
@@ -105,10 +107,21 @@ class Preprocessor(object):
 		# Combine multi output y together into single dimension
 		if len(cmbYMethodNArgs) > 0:
 			z = cmbYMtdMapping[cmbYMethodNArgs[0]](z, np.array(cmbYMethodNArgs[1:]));
+		if len(z.shape) > 1:
+			z = np.reshape(z, (-2,))
+		# Standardize the z
+		n = d_field_down.shape[0]; # Number of measured samples
+		m = d_sim_down.shape[0]; # Number of simulation samples
+		self._logger.debug('n = %d, m = %d', n, m);
+		self._logger.debug('z shape before standardization %s', z.shape);
+		(z_y_stand, z_eta_stand) = self._getStandardizedByEta(z[0:n], z[n:]);
+		z = np.append(z_y_stand, z_eta_stand);
+		self._logger.debug('z shape after standardization %s', z.shape);
+		# Extract xf xc t 
 		xf = d_field_down[:, 1:];
 		xc = d_sim_down[:, 1:1 + xf.shape[1]];
 		t = d_sim_down[:, 1 + xf.shape[1]:];
-
+		# Return
 		return (z, xf, xc, t);
 
 	def getDataFromFile(self, fieldDataFile, simDataFile, cmbYMethodNArgs, ydim):
@@ -131,8 +144,10 @@ class Preprocessor(object):
 		x = np.concatenate((xf,xc), axis=0)
 		self._logger.debug('Data shape before norm of y xf eta xc tc: %s %s %s %s %s'%(y.shape, 
 							xf.shape, eta.shape, xc.shape, tc.shape));
-		# Standarlization
-		(x, eta, y) = self._getNormalizedData(x, eta, y);
+		# Min max normalization for x eta y
+		x = self._getMinMaxNormalized(x);
+		eta = self._getMinMaxNormalized(eta);
+		y = self._getMinMaxNormalized(y); 
 		self._logger.debug('Data shape after norm of y eta x: %s %s %s'%(y.shape, eta.shape, x.shape));
 		z = np.concatenate((y,eta), axis=0);
 		self._logger.debug('Data shape before dim reduction of z: %s',z.shape);
@@ -142,6 +157,12 @@ class Preprocessor(object):
 		# Make z to be one-dim
 		if len(z.shape) > 1:
 			z = np.reshape(z, (-2,))
+		# Standardize the z
+		self._logger.debug('z shape before standardization %s', z.shape);
+		(z_y_stand, z_eta_stand) = self._getStandardizedByEta(z[0:n], z[n:]);
+		z = np.append(z_y_stand, z_eta_stand);
+		self._logger.debug('z shape after standardization %s', z.shape);
+		# Extract xf xc tc
 		xf = x[0:n,:]
 		xc = x[n:,:]
 		tc = (tc - tc.min(axis = 0)) / tc.ptp(axis = 0); # Min max norm
@@ -149,13 +170,17 @@ class Preprocessor(object):
 							xf.shape, xc.shape, tc.shape);
 		return (z, xf, xc, tc)
 
-	def _getNormalizedData(self, xf, eta, y):
+	def _getMinMaxNormalized(self, x):
 
-		xf_norm = (xf - xf.min(axis = 0)) / xf.ptp(axis = 0); # Min max norm
+		x_norm = (x - x.min(axis = 0)) / x.ptp(axis = 0);
+		return x_norm;
+	
+	def _getStandardizedByEta(self, y, eta):
 		eta_mean = eta.mean(axis = 0);
 		eta_std = eta.std(axis = 0);
-		eta_norm = (eta - eta_mean) / eta_std; 
-		y_norm = (y - eta_mean) / eta_std;
-		return (xf_norm, eta_norm, y_norm);
+		eta_stand = (eta - eta_mean) / eta_std; 
+		y_stand = (y - eta_mean) / eta_std;
+		return (y_stand, eta_stand);
+
 
 

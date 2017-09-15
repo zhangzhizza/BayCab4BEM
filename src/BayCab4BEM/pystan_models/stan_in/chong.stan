@@ -80,7 +80,7 @@ model {
 		rho_delta[j] ~ beta(1,0.4);
 	}
 	for (k in 1:q){
-		theta[k] ~ normal(0.5,0.15);
+		theta[k] ~ uniform(0.0, 1.0);
 	}
 	lambda_eta ~ gamma(10, 10); // gamma(shape, rate)
 	lambda_delta ~ gamma(10, 0.3); // gamma(shape, rate)

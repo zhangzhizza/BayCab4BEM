@@ -64,6 +64,7 @@ class MCMC4Posterior_pystan(object):
 		dataMap['xf'] = self._xf;
 		dataMap['xc'] = self._xc;
 		dataMap['t'] = self._t;
+		print (dataMap['m'])
 
 		return dataMap;
 
