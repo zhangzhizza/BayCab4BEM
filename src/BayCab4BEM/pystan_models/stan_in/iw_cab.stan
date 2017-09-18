@@ -80,11 +80,11 @@ model {
 		rho_delta[j] ~ beta(1,0.4);
 	}
 	// hard code theta for IW
-	theta[1] ~ normal(0.4, 0.3);
-	theta[2] ~ normal(0.6, 0.3);
-	theta[3] ~ normal(0.2, 0.3);
-	theta[4] ~ normal(0.0, 0.3);
-	theta[5] ~ normal(0.1, 0.3);
+	theta[1] ~ normal(0.4, 0.3); //pitched roof insulation
+	theta[2] ~ normal(0.2, 0.3); //external window U
+	theta[3] ~ normal(0.6, 0.3); //infiltration rate
+	theta[4] ~ normal(0.1, 0.3); //external window SHGC
+	theta[5] ~ normal(0.1, 0.3); //mullion surface metal thickness
 	
 	lambda_eta ~ gamma(10, 10); // gamma(shape, rate)
 	lambda_delta ~ gamma(10, 0.3); // gamma(shape, rate)

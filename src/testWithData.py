@@ -45,10 +45,10 @@ LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = None)
 
-fieldDataFile = 'DATAFIELD_sample.csv'
-simDataFile = 'DATACOMP_sample.csv'
+fieldDataFile = './iwCabData/DATAFIELD_sample_tmpOnly.csv'
+simDataFile = './iwCabData/DATACOMP_sample_tmpOnly.csv'
 cmbYArgs = ['linear', 0.5, 0.5];
-ydim = 2;
+ydim = 1;
 
 prep = Preprocessor(logger);
 (z, xf, xc, t) = prep.getDataFromFile(fieldDataFile, simDataFile, cmbYArgs, ydim);

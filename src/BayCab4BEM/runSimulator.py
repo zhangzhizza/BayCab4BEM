@@ -17,7 +17,8 @@ import threading
 
 class RunSimulatorWithRandomCaliPara(object):
 
-	def __init__(self, configFilePath, simulationWorkerObject, baseInputFilePath, simulatorExeInfo):
+	def __init__(self, configFilePath, simulationWorkerObject, baseInputFilePath, 
+					simulatorExeInfo, outputPath):
 		configFileContent = self._processConfigFile(configFilePath);
 		self._calibParaConfig = configFileContent[0]; # The config info for calibration parameters
 		self._outputConfig = configFileContent[1]; # The config info for target simulation outputs
@@ -25,6 +26,7 @@ class RunSimulatorWithRandomCaliPara(object):
 		self._simulationWorkerObject = simulationWorkerObject;
 		self._baseInputFilePath = baseInputFilePath;
 		self._simulatorExeInfo = simulatorExeInfo;
+		self._outputPath = outputPath;
 	
 
 	def getRunResults(self, runNumber, maxRunInParallel, deleteWorkingPathAfterRun = False):
@@ -59,8 +61,8 @@ class RunSimulatorWithRandomCaliPara(object):
 		totalRunsBeDone = runNumber;
 		threads = [];
 		# Set up the simulator working dir
-		currentDir = os.getcwd();
-		simulatorWorkingDir = currentDir + '/.tmp';
+		workingDir = self._outputPath# os.getcwd();
+		simulatorWorkingDir = workingDir + os.sep + 'simulatorRuns';
 		if os.path.isdir(simulatorWorkingDir):
 			shutil.rmtree(simulatorWorkingDir);
 		os.makedirs(simulatorWorkingDir);
