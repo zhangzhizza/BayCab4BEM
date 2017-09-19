@@ -18,7 +18,7 @@ import threading
 class RunSimulatorWithRandomCaliPara(object):
 
 	def __init__(self, configFilePath, simulationWorkerObject, baseInputFilePath, 
-					simulatorExeInfo, outputPath):
+					simulatorExeInfo, outputPath, logger):
 		configFileContent = self._processConfigFile(configFilePath);
 		self._calibParaConfig = configFileContent[0]; # The config info for calibration parameters
 		self._outputConfig = configFileContent[1]; # The config info for target simulation outputs
@@ -27,6 +27,7 @@ class RunSimulatorWithRandomCaliPara(object):
 		self._baseInputFilePath = baseInputFilePath;
 		self._simulatorExeInfo = simulatorExeInfo;
 		self._outputPath = outputPath;
+		self._logger = logger;
 	
 
 	def getRunResults(self, runNumber, maxRunInParallel, deleteWorkingPathAfterRun = False):
@@ -81,13 +82,16 @@ class RunSimulatorWithRandomCaliPara(object):
 				worker_work = lambda: thisWorker.updateWithThisInstanceOutput(self._baseInputFilePath,
 							 targetParaInfo, natModifyValues, targetOutputInfo, globalResList, globalLock,
 							 stdModifyValues, jobCount, simulatorWorkingDir, self._simulatorExeInfo);
-				thread = threading.Thread(target = (worker_work));
+				thread = threading.Thread(target = (worker_work), name = 'Simulation_job_%d'%jobCount);
 				thread.start();
+				self._logger.info('Simulation job %d started.', jobCount);
 				totalRunsBeDone -= 1;
 				threads.append(thread);
-				jobCount += 1;	
+				jobCount += 1;
 			for thread in threads:
 				if not thread.isAlive():
+					thisThreadJobNum = int(thread.getName().split('_')[-1]);
+					self._logger.info('Simulation job %d finished.'%thisThreadJobNum);
 					threads.remove(thread);
 		# Clear the tmp working path
 		if deleteWorkingPathAfterRun:
