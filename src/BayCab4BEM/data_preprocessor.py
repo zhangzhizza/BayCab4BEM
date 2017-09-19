@@ -58,8 +58,7 @@ class Preprocessor(object):
 							baseInputFilePath, simulatorExeInfo, outputPath);
 		simOrgResults = runSimulatorObj.getRunResults(runNumber, maxRunInParallel);
 		if is_debug:
-			self._logger.info('Dumping the simOrgResults to file for debugging...', 
-								runNumber, simulatorName);
+			self._logger.info('Dumping the simOrgResults to file for debugging...');
 			with open(outputPath + os.sep + 'DEBUG_simOrgResults.pkl', 'wb') as f:
 				pk.dump(simOrgResults, f);
 		##########################################
@@ -115,9 +114,9 @@ class Preprocessor(object):
 		######### MCMC Data Preparation ##########
 		##########################################
 		self._logger.info('Preparing data for MCMC sampling...')
-		return self._prepareMCMCIn(D_COMP, D_FIELD, ydim);
+		return self._prepareMCMCIn(d_sim_down, d_field_down, cmbYMethodNArgs, ydim);
 
-	def _prepareMCMCIn(self, D_COMP, D_FIELD, ydim):
+	def _prepareMCMCIn(self, D_COMP, D_FIELD, cmbYMethodNArgs, ydim):
 		"""
 		Prepare data for MCMC.
 

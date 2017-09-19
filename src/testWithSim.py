@@ -48,17 +48,19 @@ logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = N
 cmbYArgs = ['linear', 0.5, 0.5];
 ydim = 2;
 
-xf = './iwCabData/run1/x_hourly.csv'
-yf = './iwCabData/run1/y_hourly.csv'
-calif = './iwCabData/run1/config_iw_cab.xml'
+xf = './iwCabData/config_1/x_hourly.csv'
+yf = './iwCabData/config_1/y_hourly.csv'
+calif = './iwCabData/config_1/config_iw_cab.xml'
 simName = 'energyplus'
-baseIdf = './iwCabData/run1/iw_base_hourly.idf'
+baseIdf = './iwCabData/config_1/iw_base_hourly.idf'
 runNum = 2;
-maxRun = 5;
-simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/run1/pittsburgh.epw']
+maxRun = 8;
+simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_1/pittsburgh.epw']
 is_debug = True;
 outputPathBase = './mcmcRes/config_1'
 save_dir = get_output_folder(outputPathBase, 'IW_cab_nuts');
+stanInFileName = './BayCab4BEM/pystan_models/stan_in/chong.stan'
+dftModelName = './BayCab4BEM/pystan_models/stan_compiled/chong.stan.pkl'
 
 prep = Preprocessor(logger);
 (z, xf, xc, t) = prep.getDataFromSimulation(xf, yf, calif, simName, 
@@ -73,11 +75,10 @@ if mcmcPackage == "pymc3":
 	trace = mcmcObj.run(model, draws = 500, sampler = 'Metropolis', njobs = 1)
 
 elif mcmcPackage == 'pystan':
-	os.makedirs(save_dir)
 	mcmcObj = MCMC4Posterior_pystan(z, xf, xc, t, logger);
-	model = mcmcObj.build(stanInFileName = './BayCab4BEM/pystan_models/stan_in/iw_cab.stan', 
+	model = mcmcObj.build(stanInFileName = stanInFileName, 
 						  stanModelFileName = None, 
-						  dftModelName = './BayCab4BEM/pystan_models/stan_compiled/iw_cab.stan.pkl');
+						  dftModelName = dftModelName);
 	with open(save_dir + os.sep + 'model.pkl', 'wb') as modelfile:
 		pk.dump(model, modelfile);
 

@@ -88,7 +88,7 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 														 targetOutputInfo)
 		# Add the results to the globalList
 		globalLock.acquire() # will block if lock is already held
-		globalList.append([stdModifyValues, extractedOutput]);
+		globalList.append([natModifyValues, extractedOutput]);
 		globalLock.release()
 
 	def _extractOutputFromRawFile(self, outputFilePath, targetOutputInfo):
@@ -116,6 +116,7 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 				if lineCount == 0:
 					# Locate the cols of the target output
 					header = line;
+					header = list(map(str.strip, header));
 					for i in range(len(targetOutputInfo)):
 						try:
 							targetOutputInfoThis = targetOutputInfo[i][0].lower();
@@ -166,10 +167,10 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 		contents = None
 		with open(thisRunIDFFilePath, 'r', encoding = 'ISO-8859-1') as idf:
 			contents = idf.readlines();
-			remember_idx = -1;
+			rememberIdx_list = [];
+			changeIdx_list = [];
 			foundObject = False;
 			foundedObject = None;
-			foundName = False;
 			i = 0;
 			for line in contents:
 				effectiveContent = line.strip().split('!')[0] # Ignore contents after '!'
@@ -188,16 +189,22 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 								targetParaInfoItem = targetParaInfoRow[targetParaInfoItem_i];
 								if (targetParaInfoItem[0] == foundedObject  
 									and targetParaInfoItem[1] == effectiveContent):
-									remember_idx = i + targetParaInfoItem[2];
-									changeIndex = targetParaInfoRow_i;
-				if i == remember_idx:
+									rememberIdx_list.append(i + targetParaInfoItem[2]);
+									#remember_idx = ;
+									changeIdx_list.append(targetParaInfoRow_i)
+									#changeIndex = targetParaInfoRow_i;
+						foundObject = False;
+				if i in rememberIdx_list:
 					toBeChangedLine = contents[i];
 					# Determine should this line end with ',' or ';'
 					tailingMark = toBeChangedLine.strip().split('!')[0].strip()[-1];
 					# Change the content
+					changeIndex = changeIdx_list[0];
 					contents[i] = str(natModifyValues[changeIndex]) + \
                 				tailingMark + ' !- Calibration parameter %d'%(changeIndex) + '\n';
-					foundObject = False;
+					rememberIdx_list.pop(0);
+					changeIdx_list.pop(0);
+					
 				i += 1;
 		with open(thisRunIDFFilePath, 'w', encoding = 'ISO-8859-1') as idf:
 			idf.writelines(contents);
