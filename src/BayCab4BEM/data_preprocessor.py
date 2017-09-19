@@ -55,7 +55,7 @@ class Preprocessor(object):
 		self._logger.info('Start to run %d %s simulations...', runNumber, simulatorName);
 		simulatorObj = simulatorObjMapping[simulatorName];
 		runSimulatorObj = RunSimulatorWithRandomCaliPara(caliParaConfigPath, simulatorObj, 
-							baseInputFilePath, simulatorExeInfo, outputPath);
+							baseInputFilePath, simulatorExeInfo, outputPath, self._logger);
 		simOrgResults = runSimulatorObj.getRunResults(runNumber, maxRunInParallel);
 		if is_debug:
 			self._logger.info('Dumping the simOrgResults to file for debugging...');
@@ -170,7 +170,7 @@ class Preprocessor(object):
 		D_FIELD = np.genfromtxt(fieldDataFile, delimiter = ',')
 
 		self._logger.info('Preparing data...')
-		return self._prepareMCMCIn(D_COMP, D_FIELD, ydim);
+		return self._prepareMCMCIn(D_COMP, D_FIELD, cmbYMethodNArgs, ydim);
 
 	def _getMinMaxNormalized(self, x):
 

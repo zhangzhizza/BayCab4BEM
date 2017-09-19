@@ -132,7 +132,7 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 		extractedOutput = np.array(extractedOutput);
 		return extractedOutput;
 
-	def _createEplusRun(self, eplus_path, weather_path, idf_path, out_path, eplus_working_dir):
+	def _createEplusRun(self, eplus_path, weather_path, idf_path, out_path, eplus_working_dir, use_term = False):
 		"""
         Create a EnergyPlus run.
 
@@ -150,8 +150,10 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 
         Ret: a subprocess object. 
         """
-		openNewTerminalCMD = ['xterm', '-e'];
-		eplus_process = subprocess.Popen(openNewTerminalCMD + [eplus_path, '-w', weather_path, 
+		cmdHead = [];
+		if use_term:
+			cmdHead = ['xterm', '-e'];
+		eplus_process = subprocess.Popen(cmdHead + [eplus_path, '-w', weather_path, 
 										'-d', out_path, '-r', idf_path],
 										preexec_fn = os.setpgrp);
 		return eplus_process;
