@@ -2,6 +2,9 @@ virt_env/
 **/EnergyPlus*/
 *.epw
 *tmp/
+**/*Res*/
+**/*res*/
+
 
 
 # Byte-compiled / optimized / DLL files
