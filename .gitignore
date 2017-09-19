@@ -1,6 +1,5 @@
 virt_env/
 **/EnergyPlus*/
-*.epw
 *tmp/
 **/*Res*/
 **/*res*/
