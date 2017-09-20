@@ -87,7 +87,8 @@ class Preprocessor(object):
 		##########################################
 		self._logger.info('Constructing xc, D_sim and D_field...')
 		# Construct xc
-		xc = np.tile(xf, (runNumber, 1));
+		actualSucceedRunNum = len(simOrgResults);
+		xc = np.tile(xf, (actualSucceedRunNum, 1));
 		# Construct D_sim
 		d_sim = np.append(eta, xc, axis = 1);
 		d_sim = np.append(d_sim, t, axis = 1);	
