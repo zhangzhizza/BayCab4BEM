@@ -1,0 +1,5 @@
+If encounter an error like
+ "xterm: Xt error: Can't open display:
+  xterm: DISPLAY is not set"
+this is because the $DISPLAY environment variable is not set. Solve this by following this post:
+https://superuser.com/questions/610313/x11-forwarding-doesnt-work-with-multiple-tmux-sessions
