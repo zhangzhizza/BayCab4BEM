@@ -39,6 +39,7 @@ class DownSampler(object):
 			self._orgDataDists.append(
 				self._histToProbWithDirichletPrior(
 					np.histogram(orgData[:, coli], bins = self._bins)[0], dirichlet_prior));
+		print (self._orgDataDists[0])
 
 		
 	def sample(self, stSampleSize, increRatio, qualityThres):
@@ -71,9 +72,7 @@ class DownSampler(object):
 			qualityHist.append([sampleSize, sampleQuality]);
 			sampleSize *= increRatio;
 			sampleSize = int(sampleSize)
-			print ('sample quality', sampleQuality);
-			print ('sampleSize', sampleSize);
-
+		print ('sampleSize', sampleSize);
 		return (thisSample, np.array(qualityHist));
 
 

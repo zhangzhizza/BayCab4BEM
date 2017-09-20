@@ -97,9 +97,12 @@ class MCMC4Posterior_pystan(object):
 				stanModelsDirIdx = stanInFileName[0: stanInFileName.rfind(os.sep)].rfind(os.sep);
 				stanModelsDir = stanInFileName[0: stanModelsDirIdx];
 				compiledModelName = stanInFileName[stanInFileName.rfind(os.sep) + 1: ] + '.pkl';
-				with open(stanModelsDir + os.sep +  'stan_compiled' + os.sep + compiledModelName,
-						 'wb') as f:
+				stanCompiledDumpDir = stanModelsDir + os.sep +  'stan_compiled';
+				if not os.path.isdir(stanCompiledDumpDir):
+					os.makedirs(stanCompiledDumpDir);
+				with open(stanCompiledDumpDir + os.sep + compiledModelName, 'wb') as f:
 					pk.dump(sm, f);
+					self._logger.info('Dumped the stan compiled model to %s', f.name);
 		else:
 			self._logger.info('Loading the saved stan model %s ...'%(stanModelFileName));
 			sm = pk.load(open(stanModelFileName), 'rb');
@@ -125,7 +128,10 @@ class MCMC4Posterior_pystan(object):
 		Return:
 			pystan.StanFit4Model instance containing the fitted results. 
 		"""
-		self._logger.info('Start sampling...')
+		self._logger.info('Start sampling...');
+		self._logger.info('Sampling configurations: \n Iterations: %s\n Sampler: %s\n '
+							'Chains: %s\n Warmup: %s\n n_jobs: %s', iterations, sampler, 
+							chains, warmup, n_jobs);
 		fit = pystanModel.sampling(data = self._dataMap, chains = chains, iter = iterations, 
 									algorithm = sampler, warmup = warmup, n_jobs = n_jobs);
 

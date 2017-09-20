@@ -43,15 +43,20 @@ def get_output_folder(parent_dir, job_name):
 mcmcPackage = 'pystan';
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
-logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = None)
 
-fieldDataFile = './mcmcRes/config_1/IW_cab_nuts-run14/DEBUG_D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
-simDataFile = './mcmcRes/config_1/IW_cab_nuts-run14/DEBUG_D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
+fieldDataFile = './iwCabData/config_2/dataFromSim/down/b20_t90/D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
+simDataFile = './iwCabData/config_2/dataFromSim/down/b20_t90/D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
 cmbYArgs = ['linear', 0.5, 0.5];
 ydim = 2;
 
-stanInFileName = './BayCab4BEM/pystan_models/stan_in/chong.stan'
-dftModelName = './BayCab4BEM/pystan_models/stan_compiled/chong.stan.pkl'
+stanInFileName = './iwCabData/config_2/stan_in/chong.stan'
+dftModelName = './iwCabData/config_2/stan_compiled/chong.stan.pkl'
+
+save_base_dir = './mcmcRes/config_2/fromData' 
+save_dir = get_output_folder(save_base_dir, 'IW_cab');
+os.makedirs(save_dir)
+
+logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, save_dir + os.sep + 'log.log')
 
 prep = Preprocessor(logger);
 (z, xf, xc, t) = prep.getDataFromFile(fieldDataFile, simDataFile, cmbYArgs, ydim);
@@ -64,8 +69,7 @@ if mcmcPackage == "pymc3":
 	trace = mcmcObj.run(model, draws = 500, sampler = 'Metropolis', njobs = 1)
 
 elif mcmcPackage == 'pystan':
-	save_dir = get_output_folder('./mcmcRes/adrian_data', 'IW_cab_nuts');
-	os.makedirs(save_dir)
+	
 	mcmcObj = MCMC4Posterior_pystan(z, xf, xc, t, logger);
 	model = mcmcObj.build(stanInFileName = stanInFileName, 
 						  stanModelFileName = None, 
