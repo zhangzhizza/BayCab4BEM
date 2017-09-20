@@ -3,6 +3,7 @@ virt_env/
 *tmp/
 **/*Res*/
 **/*res*/
+**/raw/
 
 
 
