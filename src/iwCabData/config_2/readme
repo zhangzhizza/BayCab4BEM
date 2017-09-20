@@ -1,0 +1,3 @@
+This config takes diffuse solar, direct solar, OAH and OAT as x, 
+pitched roof insul thickness, ext win U, infiltration rate, ext win SHGC,
+mullion surface metal thickness as t. 

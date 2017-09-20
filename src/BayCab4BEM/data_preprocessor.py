@@ -165,12 +165,13 @@ class Preprocessor(object):
 		"""
 		Most of the following code is taken from Adrian Chong
 		"""
-		self._logger.info('Reading dataset from files...')
+		self._logger.info('Reading dataset from files %s and %s...', simDataFile, fieldDataFile);
 		# Read file
-		D_COMP = np.genfromtxt(simDataFile, delimiter = ',')
-		D_FIELD = np.genfromtxt(fieldDataFile, delimiter = ',')
+		D_COMP = np.genfromtxt(simDataFile, delimiter = ',', skip_header = 1)
+		D_FIELD = np.genfromtxt(fieldDataFile, delimiter = ',', skip_header = 1)
 
 		self._logger.info('Preparing data...')
+		self._logger.info('Y dimension reduction method is %s.', cmbYMethodNArgs);
 		return self._prepareMCMCIn(D_COMP, D_FIELD, cmbYMethodNArgs, ydim);
 
 	def _getMinMaxNormalized(self, x):
