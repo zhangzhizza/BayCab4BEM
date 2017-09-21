@@ -140,10 +140,11 @@ class Preprocessor(object):
 		self._logger.debug('Data shape before norm of y xf eta xc tc: %s %s %s %s %s'%(y.shape, 
 							xf.shape, eta.shape, xc.shape, tc.shape));
 		x = self._getMinMaxNormalized(x);
-		eta = self._getMinMaxNormalized(eta);
-		y = self._getMinMaxNormalized(y);
-		tc = self._getMinMaxNormalized(tc); 
-		self._logger.debug('Data shape after norm of y eta x: %s %s %s'%(y.shape, eta.shape, x.shape));
+		tc = self._getMinMaxNormalized(tc);
+		if ydim > 1:
+			eta = self._getMinMaxNormalized(eta);
+			y = self._getMinMaxNormalized(y); 
+			self._logger.debug('Data shape after norm of y eta x: %s %s %s'%(y.shape, eta.shape, x.shape));
 		# Reduce dimension of z to one, if not one
 		z = np.concatenate((y,eta), axis=0);
 		self._logger.debug('Data shape before dim reduction of z: %s',z.shape);
