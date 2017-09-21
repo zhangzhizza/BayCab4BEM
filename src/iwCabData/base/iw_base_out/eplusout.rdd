@@ -1,4 +1,4 @@
-! Program Version,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.17 21:54,IDD_Version 8.3.0
+! Program Version,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.20 23:03,IDD_Version 8.3.0
 ! Output:Variable Objects (applicable to this run)
 Output:Variable,*,Site Outdoor Air Drybulb Temperature,hourly; !- Zone Average [C]
 Output:Variable,*,Site Outdoor Air Dewpoint Temperature,hourly; !- Zone Average [C]
@@ -376,6 +376,7 @@ Output:Variable,*,IW DOAS Desiccant Wheel Operation Flag Action,hourly; !- Zone 
 Output:Variable,*,IW DOAS Regen Fan Operation Flag Action,hourly; !- Zone Average []
 Output:Variable,*,Mullion Heating Control Temperature High Schedule Value,hourly; !- Zone Average [C]
 Output:Variable,*,Mullion Heating Control Temperature Low Schedule Value,hourly; !- Zone Average [C]
+Output:Variable,*,IW Calculated Heating Demand,hourly; !- Zone Average [KW]
 Output:Variable,*,Zone Air System Sensible Heating Energy,hourly; !- HVAC Sum [J]
 Output:Variable,*,Zone Air System Sensible Cooling Energy,hourly; !- HVAC Sum [J]
 Output:Variable,*,Zone Air System Sensible Heating Rate,hourly; !- HVAC Average [W]

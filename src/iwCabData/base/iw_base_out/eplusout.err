@@ -1,4 +1,4 @@
-Program Version,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.17 21:54,IDD_Version 8.3.0
+Program Version,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.20 23:03,IDD_Version 8.3.0
    ** Warning ** Timestep: Requested number (1) is less than the suggested minimum of 4.
    **   ~~~   ** Please see entry for Timestep in Input/Output Reference for discussion of considerations.
    ** Warning ** ProcessScheduleInput: Schedule:File="OAT_2017" less than 8760 hourly values read from file.
@@ -252,4 +252,4 @@ Program Version,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.17 21:54,IDD_V
    *************
    ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 9 Severe Errors.
    ************* EnergyPlus Sizing Error Summary. During Sizing: 16 Warning; 0 Severe Errors.
-   ************* EnergyPlus Completed Successfully-- 59 Warning; 12 Severe Errors; Elapsed Time=00hr 02min 58.26sec
+   ************* EnergyPlus Completed Successfully-- 59 Warning; 12 Severe Errors; Elapsed Time=00hr 01min 41.44sec

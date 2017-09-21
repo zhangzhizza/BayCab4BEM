@@ -34279,7 +34279,10 @@ Output:Variable, ! #CaliOut1: IW Average Temperature
     IW North Zone Average Temperature, !- Variable Name
     timestep; !- Reporting Frequency
 
-Output:Variable,*,District Heating Hot Water Energy,hourly; !- HVAC Sum [J] #CaliOut2: District Heating Energy
+Output:Variable,
+    *, !- Key Value
+    IW Calculated Heating Demand, !- Variable Name
+    timestep; !- Reporting
 
 
 
@@ -34583,6 +34586,21 @@ EnergyManagementSystem:Sensor,
     iw_hw_ssp_2017,! Output:Variable or Output:Meter Index Key Name
     Schedule Value; ! Output:Variable or Output:Meter Name
 
+EnergyManagementSystem:Sensor,
+    hw_dmd_in_temp_sensor, !Name HWLoop demand inlet node temperature
+    tempHWLoop Demand Side Inlet,! Output:Variable or Output:Meter Index Key Name
+    System Node Temperature; ! Output:Variable or Output:Meter Name
+
+EnergyManagementSystem:Sensor,
+    hw_dmd_out_temp_sensor, !Name HWLoop demand inlet node temperature
+    tempHWLoop Demand Side Outlet,! Output:Variable or Output:Meter Index Key Name
+    System Node Temperature; ! Output:Variable or Output:Meter Name
+
+EnergyManagementSystem:Sensor,
+    hw_dmd_out_flow_sensor, !Name HWLoop demand inlet node temperature
+    tempHWLoop Demand Side Outlet,! Output:Variable or Output:Meter Index Key Name
+    System Node Mass Flow Rate; ! Output:Variable or Output:Meter Name
+
 !-   ===========  ALL OBJECTS IN CLASS: EnergyManagementSystem:GlobalVariable ===========
 EnergyManagementSystem:GlobalVariable,
     IW_Node4_N_T_Ave;  !- IW north zones average temperature (as name in Siemens BAS)
@@ -34629,6 +34647,9 @@ EnergyManagementSystem:GlobalVariable,
 EnergyManagementSystem:GlobalVariable,
     PID_error_lastStep;  !- e(tl-1) for PID
 
+EnergyManagementSystem:GlobalVariable,
+    CalculatedHeatingDmd;  !- The calculated heating demand by cpmdt
+
 !-   ===========  ALL OBJECTS IN CLASS: EnergyManagementSystem:Program ===========
 EnergyManagementSystem:Program, 
     InitVar, ! Name init all global variables to zero at the start of simulation. 
@@ -34645,6 +34666,7 @@ EnergyManagementSystem:Program,
     SET AVE_CO2 = 0,
     SET IS_DAY = 0,
     SET Heating_spw_stpt = 60,
+    SET CalculatedHeatingDmd = 0,
     SET Heating_spw_stpt_lastStep = Heating_spw_stpt;
 
 EnergyManagementSystem:Program,
@@ -34662,6 +34684,11 @@ EnergyManagementSystem:Program,
     SET SumNumerator = CO2_largeConf0 + CO2_bas + CO2_off_annie + CO2_surekha + CO2_vivian,
     SET SumDenominator = 5,
     SET AVE_CO2 = SumNumerator / SumDenominator;
+
+EnergyManagementSystem:Program,
+    CalDmdHeatingDmd, ! Name Calculate the heating demand
+    SET TmpDiff = @Abs(hw_dmd_in_temp_sensor - hw_dmd_out_temp_sensor),
+    SET CalculatedHeatingDmd = 4.178 * hw_dmd_out_flow_sensor * TmpDiff;
 
 EnergyManagementSystem:Program,
     CalcAveCO2, ! Name Calculate the average CO2 ppm based on some zones.
@@ -35023,6 +35050,10 @@ EnergyManagementSystem:ProgramCallingManager,
     DeterRegenFanOp,
     CtrlRadiantSys;
 
+EnergyManagementSystem:ProgramCallingManager,
+    energy_sensor_calls, ! Name the programs here calculate HVAC related energy consumption values 
+    EndOfZoneTimestepBeforeZoneReporting, ! EnergyPlus Model Calling Point
+    CalDmdHeatingDmd; ! Program Name 1
 
 !-   ===========  ALL OBJECTS IN CLASS: EnergyManagementSystem:Actuator ===========
 
@@ -35621,6 +35652,14 @@ EnergyManagementSystem:OutputVariable,
     ,      ! EMS Program or Subroutine Name
     C;
 
+EnergyManagementSystem:OutputVariable,  
+    IW Calculated Heating Demand, ! Name            
+    CalculatedHeatingDmd, ! EMS Variable Name           
+    Averaged, ! Type of Data in Variable            
+    ZoneTimeStep, ! Update Frequency            
+    ,      ! EMS Program or Subroutine Name         
+    kW;
+
 !-   ===========  ALL OBJECTS IN CLASS: Schedule:Compact ===========
 Schedule:Compact,
     EMS_heating_time_switch_sch,        !- Name
@@ -36035,7 +36074,7 @@ Schedule:File,
    oat_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    6,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data
@@ -36047,7 +36086,7 @@ Schedule:File,
    oah_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    5,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data
@@ -36059,7 +36098,7 @@ Schedule:File,
    oadwp_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    4,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data
@@ -36071,7 +36110,7 @@ Schedule:File,
    oawds_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    8,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data
@@ -36083,7 +36122,7 @@ Schedule:File,
    oawdd_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    7,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data
@@ -36095,7 +36134,7 @@ Schedule:File,
    solDir_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    3,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data
@@ -36107,7 +36146,7 @@ Schedule:File,
    solDif_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    2,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data
@@ -36119,7 +36158,7 @@ Schedule:File,
    iw_hw_ssp_2017,   !- Name # DO NOT USE
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
-   /home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv,   !- Name of File
+   /home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv,   !- Name of File
    2,                    !- Column Number
    1,                    !- Rows to Skip at Top
    ,                 !- Number of Hours of Data

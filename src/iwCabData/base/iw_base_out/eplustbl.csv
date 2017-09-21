@@ -1,4 +1,4 @@
-Program Version:,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.17 21:54
+Program Version:,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.20 23:03
 Tabular Output Report in Format: ,Comma
 
 Building:,Building
@@ -211,7 +211,7 @@ FOR:,Entire Facility
 General
 
 ,,Value
-,Program Version and Build,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.17 21:54
+,Program Version and Build,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.20 23:03
 ,RunPeriod,WHOLEYEAR
 ,Weather File,Pittsburgh Allegheny Co Ap PA USA TMY3 WMO#=725205
 ,Latitude [deg],40.35
@@ -1365,7 +1365,7 @@ HVAC
 Input Fields
 
 ,,Count
-,IDF Objects,1954
+,IDF Objects,1961
 ,Defaulted Fields,158
 ,Fields with Defaults,5492
 ,Autosized Fields,5

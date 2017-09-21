@@ -11,7 +11,7 @@
   Processing Input Data File -- Complete
   Maximum number of Alpha IDF Args=         118
   Maximum number of Numeric IDF Args=          51
-  Number of IDF "Lines"=        1954
+  Number of IDF "Lines"=        1961
   Number of Defaulted Fields=         158
   Number of Fields with Defaults=        5492
   Number of Autosized Fields=           5
@@ -44,14 +44,14 @@
   Processing Schedule Input -- Start
  Getting object=SCHEDULETYPELIMITS
  Getting object=SCHEDULE:FILE
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
-found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src/BayCab4BEM/sample/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
+found (user input)=/home/zhiangz/Documents/bayesian_calibration_pyImpl/src/iwCabData/config_1/x_hourly.csv
   Processing Schedule Input -- Complete
  Getting object=DESIGNSPECIFICATION:ZONEAIRDISTRIBUTION
  Getting object=SIZING:PARAMETERS
@@ -175,9 +175,9 @@ found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src
  numTableEntry=        9466
  sizeCompSizeTableEntry=         200
  numCompSizeTableEntry=         103
- NumOfRVariable=       70713
- NumOfRVariable(Total)=       70713
- NumOfRVariable(Actual)=         357
+ NumOfRVariable=       70714
+ NumOfRVariable(Total)=       70714
+ NumOfRVariable(Actual)=         361
  NumOfRVariable(Summed)=         254
  NumOfRVariable(Meter)=         254
  NumOfIVariable=        5243
@@ -196,8 +196,8 @@ found (user input)=/home/zhiangz/Dropbox/phd_bpd/bayesian_calibration_pyImpl/src
  InstMeterCacheSize=        1000
  ClippingAlgorithm=SutherlandHodgman
  MonthlyFieldSetInputCount=           0
- NumConsideredOutputVariables=         106
- MaxConsideredOutputVariables=         106
+ NumConsideredOutputVariables=         110
+ MaxConsideredOutputVariables=         110
  numActuatorsUsed=          32
  numEMSActuatorsAvailable=        6722
  maxEMSActuatorsAvailable=        8000
