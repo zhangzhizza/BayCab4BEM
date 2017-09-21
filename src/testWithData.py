@@ -44,15 +44,15 @@ mcmcPackage = 'pystan';
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
-fieldDataFile = './iwCabData/config_3/dataFromSim/down/b20_t90/D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
-simDataFile = './iwCabData/config_3/dataFromSim/down/b20_t90/D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
+fieldDataFile = './iwCabData/config_4/dataFromSim/down/b20_t90/D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
+simDataFile = './iwCabData/config_4/dataFromSim/down/b20_t90/D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
 cmbYArgs = [];
 ydim = 1;
 
-stanInFileName = './iwCabData/config_3/stan_in/chong.stan'
-dftModelName = './iwCabData/config_3/stan_compiled/chong.stan.pkl'
+stanInFileName = './iwCabData/config_4/stan_in/chong.stan'
+dftModelName = './iwCabData/config_4/stan_compiled/chong.stan.pkl'
 
-save_base_dir = './mcmcRes/config_3/fromData' 
+save_base_dir = './mcmcRes/config_4/fromData' 
 save_dir = get_output_folder(save_base_dir, 'IW_cab');
 os.makedirs(save_dir)
 
