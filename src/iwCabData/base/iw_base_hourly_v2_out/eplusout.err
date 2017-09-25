@@ -1,0 +1,195 @@
+Program Version,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.09.21 05:02,IDD_Version 8.3.0
+   ** Warning ** Timestep: Requested number (1) is less than the suggested minimum of 4.
+   **   ~~~   ** Please see entry for Timestep in Input/Output Reference for discussion of considerations.
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAT_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAT_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAH_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAH_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** ProcessScheduleInput: Schedule:File="OADWP_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="OADWP_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAWDS_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAWDS_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAWDD_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="OAWDD_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** ProcessScheduleInput: Schedule:File="SOLDIR_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="SOLDIR_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** ProcessScheduleInput: Schedule:File="SOLDIF_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="SOLDIF_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** ProcessScheduleInput: Schedule:File="IW_HW_SSP_2017" less than 8760 hourly values read from file.
+   **   ~~~   ** ..Number read=2161.
+   ** Warning ** ProcessScheduleInput: Schedule:File="IW_HW_SSP_2017" less than specified hourly values read from file.
+   **   ~~~   ** ..Specified Number of Hourly Values=8760 Actual number of hourly values included=2161
+   ** Warning ** CalcSurfaceCentroid: 38 Surfaces have the Z coordinate < 0.
+   **   ~~~   ** ...in any calculations, Wind Speed will be 0.0 for these surfaces.
+   **   ~~~   ** ...in any calculations, Outside temperatures will be the outside temperature + 9.750E-003 for these surfaces.
+   **   ~~~   ** ...that is, these surfaces will have conditions as though at ground level.
+   ** Warning ** CheckUsedConstructions: There are 6 nominally unused constructions in input.
+   **   ~~~   ** Each Unused construction is shown.
+   ************* Construction=GLASSASVIRTUALPARTITION
+   ************* Construction=LINEARBRIDGINGCONSTRUCTION
+   ************* Construction=FLOOR_SLAB_2
+   ************* Construction=SINGLE_LAYER_GLAZING_11
+   ************* Construction=SINGLE_LAYER_GLAZING_12
+   ************* Construction=SINGLE_LAYER_GLAZING_9
+   ** Warning ** GetInternalHeatGains: ElectricEquipment="OFF-ANNIE COMPUTING GAIN 1", specifies Watts per Zone Floor Area, but that field is blank.  0 Electric Equipment will result.
+   ** Severe  ** InitConductionTransferFunctions: Found Material that is too thin and/or too highly conductive, material name = ALUMINIUM_2MM
+   **   ~~~   ** High conductivity Material layers are not well supported for internal source constructions, material conductivity = 230.000 [W/m-K]
+   **   ~~~   ** Material thermal diffusivity = 9.680E-005 [m2/s]
+   **   ~~~   ** Material with this thermal diffusivity should have thickness > 1.02247 [m]
+   ** Severe  ** InitConductionTransferFunctions: Found Material that is too thin and/or too highly conductive, material name = COPPER_2MM
+   **   ~~~   ** High conductivity Material layers are not well supported for internal source constructions, material conductivity = 400.000 [W/m-K]
+   **   ~~~   ** Material thermal diffusivity = 1.193E-004 [m2/s]
+   **   ~~~   ** Material with this thermal diffusivity should have thickness > 1.13491 [m]
+   **   ~~~   ** Material may be too thin to be modeled well, thickness = 2.00000E-003 [m]
+   **   ~~~   ** Material with this thermal diffusivity should have thickness > 3.00000E-003 [m]
+   ** Severe  ** InitConductionTransferFunctions: Found Material that is too thin and/or too highly conductive, material name = STEEL_5MM
+   **   ~~~   ** High conductivity Material layers are not well supported for internal source constructions, material conductivity = 45.000 [W/m-K]
+   **   ~~~   ** Material thermal diffusivity = 1.202E-005 [m2/s]
+   **   ~~~   ** Material with this thermal diffusivity should have thickness > 0.36029 [m]
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFS2".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFS3".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFS0".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFS4".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFN0".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFN3".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFN1".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="ROOFN2".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="CORRINOR".
+   ** Warning ** FixViewFactors: View factors not complete. Check for bad surface descriptions or unenclosed zone="CORRISOU".
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system BAS MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-VOLKER MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-ERICA MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system LARGECONF0 MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-SUREKHA MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-YUJIE MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-BAPP MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-WEILI MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-JAMES MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-VIVIAN MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-OMER MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-ZHIANG MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=43.33% which is less than 50%, for pump in radiant system OFF-CHENLU MULLION
+   ** Warning ** Check input. Calc Pump Efficiency=10.83% which is less than 50%, for pump in radiant system BAS CHILLED CEILING
+   ** Warning ** Check input. Calc Pump Efficiency=10.83% which is less than 50%, for pump in radiant system OFF-VOLKER CHILLED CEILING
+   ** Warning ** Check input. Calc Pump Efficiency=10.83% which is less than 50%, for pump in radiant system OFF-ERICA CHILLED CEILING
+   ** Warning ** Check input. Calc Pump Efficiency=10.83% which is less than 50%, for pump in radiant system KITCHEN CHILLED CEILING
+   ** Warning ** In calculating the design coil UA for Coil:Cooling:Water OFF-ZHIANG FAN COIL UNIT COOLING COIL
+   **   ~~~   ** no apparatus dew-point can be found for the initial entering and leaving conditions;
+   **   ~~~   ** the apparatus dew-point is below the coil design inlet water temperature;
+   **   ~~~   ** the coil outlet design conditions will be changed to correct the problem.
+   **   ~~~   ** The initial design conditions are: Tair,in = 23.9000
+   **   ~~~   **                                    Wair,in = 1.118000E-002
+   **   ~~~   **                                    Twater,in = 12.8000
+   **   ~~~   **                                    Tair,out = 18.0000
+   **   ~~~   **                                    Wair,out = 8.830000E-003
+   **   ~~~   ** The revised design conditions are: Tair,out = 15.0229
+   **   ~~~   **                                    Wair,out = 1.003225E-002
+   ** Warning ** In calculating the design coil UA for Coil:Cooling:Water OFF-CHENLU FAN COIL UNIT COOLING COIL
+   **   ~~~   ** no apparatus dew-point can be found for the initial entering and leaving conditions;
+   **   ~~~   ** the apparatus dew-point is below the coil design inlet water temperature;
+   **   ~~~   ** the coil outlet design conditions will be changed to correct the problem.
+   **   ~~~   ** The initial design conditions are: Tair,in = 23.9000
+   **   ~~~   **                                    Wair,in = 1.118000E-002
+   **   ~~~   **                                    Twater,in = 12.8000
+   **   ~~~   **                                    Tair,out = 18.0000
+   **   ~~~   **                                    Wair,out = 8.830000E-003
+   **   ~~~   ** The revised design conditions are: Tair,out = 15.0229
+   **   ~~~   **                                    Wair,out = 1.003225E-002
+   ************* SizeDistrictHeating: Potential issue with equipment sizing for CMU DISTRICTHEATING
+   **   ~~~   ** User-Specified Nominal Capacity of 400000.00 [W]
+   **   ~~~   ** differs from Design Size Nominal Capacity of 81409.98 [W]
+   **   ~~~   ** This may, or may not, indicate mismatched component sizes.
+   **   ~~~   ** Verify that the value entered is intended and is consistent with other components.
+   ************* SizeDistrictCooling: Potential issue with equipment sizing for CMU DISTRICTCOOLING
+   **   ~~~   ** User-Specified Nominal Capacity of 100000.00 [W]
+   **   ~~~   ** differs from Design Size Nominal Capacity of 42019.03 [W]
+   **   ~~~   ** This may, or may not, indicate mismatched component sizes.
+   **   ~~~   ** Verify that the value entered is intended and is consistent with other components.
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFS1
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.706].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFS2
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.706].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFS3
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.706].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFS0
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.707].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFS4
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.705].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFN0
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.744].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFN3
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.723].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFN1
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.734].
+   ** Warning ** RoomAirManager: Inconsistent ceiling heights in Zone: ROOFN2
+   **   ~~~   ** Lowest height=[4.120].
+   **   ~~~   ** Highest height=[5.420].
+   **   ~~~   ** Ceiling height=[0.734].
+   ** Warning ** GetCurrentScheduleValue: Schedule="OAT_2017" is a Schedule:File
+   **   ~~~   ** ...Use of Schedule:File when DaylightSavingTime is in effect is not recommended.
+   **   ~~~   ** ...1) Remove RunperiodControl:DaylightSavingTime object or remove DST period from Weather File.
+   **   ~~~   ** ...2) Configure other schedules and Schedule:File to account for occupant behavior during DST.
+   **   ~~~   ** ...   If you have already done this, you can ignore this message.
+   **   ~~~   ** ...When active, DaylightSavingTime will shift all scheduled items by one hour, retaining the same day type as the original.
+   ************* Testing Individual Branch Integrity
+   ** Severe  ** Non-unique node name found, name=TEMPHWLOOP SUPPLY SIDE OUTLET
+   **   ~~~   ** ..1st occurence in Branch=TEMPHWLOOP DEMAND SIDE INLET BRANCH
+   **   ~~~   ** ..duplicate occurrence in Branch=TEMPHWLOOP SUPPLY SIDE OUTLET BRANCH
+   ** Severe  ** Branch(es) did not pass integrity testing
+   ************* Testing Individual Supply Air Path Integrity
+   ************* All Supply Air Paths passed integrity testing
+   ************* Testing Individual Return Air Path Integrity
+   ************* All Return Air Paths passed integrity testing
+   ************* No node connection errors were found.
+   **  Fatal  ** Previous Conditions cause program termination.
+   ...Summary of Errors that led to program termination:
+   ..... Reference severe error count=5
+   ..... Last severe error=Branch(es) did not pass integrity testing
+   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).
+   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.
+   *************
+   ************* ===== Final Error Summary =====
+   ************* The following error categories occurred.  Consider correcting or noting.
+   ************* Incomplete View factors
+   ************* ..Incomplete view factors can result from incorrect floor specifications (such as tilting 0
+   ************* ..instead of 180) or not enough surfaces in a zone to make an enclosure.  The error message
+   ************* ..also shows an enforced repciprocity value.  You can decide if you need to make geometry
+   ************* ..changes based on that value.
+   ************* Nominally Unused Constructions
+   ************* ..The nominally unused constructions warning is provided to alert you to potential conditions that can cause
+   ************* ..extra time during simulation. Each construction is calculated by the algorithm indicated in the HeatBalanceAlgorithm
+   ************* ..object. You may remove the constructions indicated (when you use the DisplayExtraWarnings option).
+   *************
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 16 Warning; 0 Severe Errors.
+   ************* EnergyPlus Terminated--Fatal Error Detected. 59 Warning; 5 Severe Errors; Elapsed Time=00hr 00min  1.48sec

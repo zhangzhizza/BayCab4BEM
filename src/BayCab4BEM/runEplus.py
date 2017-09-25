@@ -24,7 +24,7 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 
 	def updateWithThisInstanceOutput(self, baseInputFilePath, targetParaInfo, natModifyValues, 
 									targetOutputInfo, globalList, globalLock, stdModifyValues, 
-									jobID, baseWorkingDir, simulatorExeInfo):
+									jobID, baseWorkingDir, simulatorExeInfo, raw_output_process_func):
 		"""
 		The method create a new simulation input file, run the simulation, extract relavent outputs 
 		from the raw output files, and update the global results container globalList with the outputs. 
@@ -65,6 +65,7 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 
 		Ret: None
 		"""
+		baseInputFilePath = os.path.abspath(baseInputFilePath)
 		# Make a new working dir for just this run
 		thisRunWorkingDir = baseWorkingDir + '/run%d'%(jobID);
 		while os.path.isdir(thisRunWorkingDir):
@@ -78,7 +79,7 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 		for targetParaInfoRow in targetParaInfo:
 			for targetParaInfoItem in targetParaInfoRow:
 				targetParaInfoItem[2] = int(targetParaInfoItem[2]);
-		self._makeChangeToIDFFile(thisRunIDFFilePath, targetParaInfo, natModifyValues);
+		self._makeChangeToIDFFile(baseInputFilePath, thisRunIDFFilePath, targetParaInfo, natModifyValues);
 		# Run Eplus
 		eplus_process = self._createEplusRun(simulatorExeInfo[0], simulatorExeInfo[1], 
 						                  thisRunIDFFilePath, thisRunWorkingDir, thisRunWorkingDir);
@@ -86,9 +87,10 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 		# Extract output from raw output files
 		extractedOutput = self._extractOutputFromRawFile(thisRunWorkingDir + '/' + EPLUS_OUTFILE_NAME,
 														 targetOutputInfo)
+		processedOutput = raw_output_process_func(extractedOutput)
 		# Add the results to the globalList
 		globalLock.acquire() # will block if lock is already held
-		globalList.append([natModifyValues, extractedOutput]);
+		globalList.append([natModifyValues, processedOutput]);
 		globalLock.release()
 
 	def _extractOutputFromRawFile(self, outputFilePath, targetOutputInfo):
@@ -126,8 +128,12 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 				else:
 					thisLineExtractedOutput = [];
 					for colNum in tgtColsInOutput:
-						thisLineExtractedOutput.append(float(line[colNum]));
-					extractedOutput.append(thisLineExtractedOutput);
+						try:
+							thisLineExtractedOutput.append(float(line[colNum]));
+						except ValueError:
+							pass; # This line is blank, pass it.
+					if len(thisLineExtractedOutput) == len(targetOutputInfo): 
+						extractedOutput.append(thisLineExtractedOutput);
 				lineCount += 1;
 		extractedOutput = np.array(extractedOutput);
 		return extractedOutput;
@@ -158,7 +164,8 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 										preexec_fn = os.setpgrp);
 		return eplus_process;
 
-	def _makeChangeToIDFFile(self, thisRunIDFFilePath, targetParaInfo, natModifyValues):
+	def _makeChangeToIDFFile(self, baseInputFilePath,thisRunIDFFilePath, targetParaInfo, natModifyValues):
+		replacedPath = baseInputFilePath[0: baseInputFilePath.rfind(os.sep)] # Get base IDF file directory
 		tgtObjectList = [];
 		tgtNameList = [];
 		for targetParaInfoRow in targetParaInfo:
@@ -175,6 +182,7 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 			foundedObject = None;
 			i = 0;
 			for line in contents:
+				contents[i] = contents[i].replace('@Path', replacedPath) # Replace path of schedule:file
 				effectiveContent = line.strip().split('!')[0] # Ignore contents after '!'
 				effectiveContent = effectiveContent.strip().split(',')[0] # Remove tailing ','
 				if effectiveContent in tgtObjectList:

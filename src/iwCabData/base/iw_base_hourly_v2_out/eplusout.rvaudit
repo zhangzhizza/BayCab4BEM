@@ -1,0 +1,13 @@
+ ReadVarsESO
+ processing:.iw_base_hourly_v2.rvi
+ input file:iw_base_v2_out/eplusout.eso
+ output file:iw_base_v2_out/eplusout.csv
+ getting all vars from:iw_base_v2_out/eplusout.eso
+  number variables requested for output=         218
+ ReadVars Run Time=00hr 00min  0.62sec
+ ReadVarsESO program completed successfully.
+ ReadVarsESO
+ processing:.iw_base_hourly_v2.mvi
+ Requested ESO file=iw_base_v2_out/eplusout.mtr
+ does not exist.  ReadVarsESO program terminated.
+ ReadVarsESO program terminated.

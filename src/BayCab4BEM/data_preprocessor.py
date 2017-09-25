@@ -23,7 +23,7 @@ class Preprocessor(object):
 
 	def getDataFromSimulation(self, xf_filePath, y_filePath, caliParaConfigPath, simulatorName, 
 							baseInputFilePath, runNumber, maxRunInParallel, cmbYMethodNArgs, 
-							simulatorExeInfo, ydim, is_debug, outputPath):
+							simulatorExeInfo, ydim, is_debug, outputPath, raw_output_process_func):
 		"""
 		Args:
 			xf_filePath, y_filePath: str
@@ -45,6 +45,9 @@ class Preprocessor(object):
 		# Delete rows with na, this may happen when using Excel like software to edit the csv file
 		y.dropna(axis = 0, how = 'any', inplace = True)
 		xf.dropna(axis = 0, how = 'any', inplace = True)
+		# Get xf and y headers
+		y_header = list(y.columns.values);
+		xf_header = list(xf.columns.values);
 		# Get np.ndarry from the pandas dataframe
 		y = y.values;
 		xf = xf.values;
@@ -56,7 +59,9 @@ class Preprocessor(object):
 		simulatorObj = simulatorObjMapping[simulatorName];
 		runSimulatorObj = RunSimulatorWithRandomCaliPara(caliParaConfigPath, simulatorObj, 
 							baseInputFilePath, simulatorExeInfo, outputPath, self._logger);
-		simOrgResults = runSimulatorObj.getRunResults(runNumber, maxRunInParallel);
+		simOrgResults = runSimulatorObj.getRunResults(runNumber, maxRunInParallel, 
+													  raw_output_process_func);
+		etaHeader, tHeader = runSimulatorObj.getHeaders();
 		if is_debug:
 			self._logger.info('Dumping the simOrgResults to file for debugging...');
 			with open(outputPath + os.sep + 'DEBUG_simOrgResults.pkl', 'wb') as f:
@@ -86,6 +91,9 @@ class Preprocessor(object):
 		#### Construct Data to Required Format ###
 		##########################################
 		self._logger.info('Constructing xc, D_sim and D_field...')
+		# Make the headers
+		D_sim_header = ','.join(etaHeader + xf_header + tHeader);
+		D_field_header = ','.join(y_header + xf_header);
 		# Construct xc
 		actualSucceedRunNum = len(simOrgResults);
 		xc = np.tile(xf, (actualSucceedRunNum, 1));
@@ -96,8 +104,8 @@ class Preprocessor(object):
 		d_field = np.append(y, xf, axis = 1);
 		if is_debug:
 			self._logger.info('Saving original D_sim and D_field to files...')
-			np.savetxt(outputPath + os.sep + 'DEBUG_D_sim_org.csv', d_sim, delimiter=",");
-			np.savetxt(outputPath + os.sep + 'DEBUG_D_field_org.csv', d_field, delimiter=',');
+			np.savetxt(outputPath + os.sep + 'DEBUG_D_sim_org.csv', d_sim, delimiter=",", header = D_sim_header);
+			np.savetxt(outputPath + os.sep + 'DEBUG_D_field_org.csv', d_field, delimiter=',', header = D_field_header);
 		##########################################
 		######### Down Sample the Data ###########
 		##########################################
@@ -108,8 +116,8 @@ class Preprocessor(object):
 		(d_field_down, d_field_sp_hist) = downSampler_dField.sample(stSampleSize = 50, increRatio = 1.1, qualityThres = 0.95);
 		if is_debug:
 			self._logger.info('Saving downsampled D_sim and D_field to files...')
-			np.savetxt(outputPath + os.sep + 'DEBUG_D_sim_down.csv', d_sim_down, delimiter=",");
-			np.savetxt(outputPath + os.sep + 'DEBUG_D_field_down.csv', d_field_down, delimiter=',');
+			np.savetxt(outputPath + os.sep + 'DEBUG_D_sim_down.csv', d_sim_down, delimiter=",", header = D_sim_header);
+			np.savetxt(outputPath + os.sep + 'DEBUG_D_field_down.csv', d_field_down, delimiter=',', header = D_field_header);
 
 		##########################################
 		######### MCMC Data Preparation ##########
