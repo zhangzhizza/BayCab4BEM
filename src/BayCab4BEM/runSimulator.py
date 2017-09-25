@@ -28,9 +28,16 @@ class RunSimulatorWithRandomCaliPara(object):
 		self._simulatorExeInfo = simulatorExeInfo;
 		self._outputPath = outputPath;
 		self._logger = logger;
-	
 
-	def getRunResults(self, runNumber, maxRunInParallel, deleteWorkingPathAfterRun = False):
+	def getHeaders(self):
+		
+		etaHeaders = [etaConfigDict['name'] for etaConfigDict in self._outputConfig];
+		tHeaders = [tConfigDict['name'] for tConfigDict in self._calibParaConfig];
+
+		return (etaHeaders, tHeaders);
+
+	def getRunResults(self, runNumber, maxRunInParallel, raw_output_process_func, 
+						deleteWorkingPathAfterRun = False):
 		"""
 		The method run simulator with random calibration parameters in multi-threading way, and
 		return the simulation outputs. 
@@ -81,7 +88,8 @@ class RunSimulatorWithRandomCaliPara(object):
 				thisWorker = self._simulationWorkerObject();
 				worker_work = lambda: thisWorker.updateWithThisInstanceOutput(self._baseInputFilePath,
 							 targetParaInfo, natModifyValues, targetOutputInfo, globalResList, globalLock,
-							 stdModifyValues, jobCount, simulatorWorkingDir, self._simulatorExeInfo);
+							 stdModifyValues, jobCount, simulatorWorkingDir, self._simulatorExeInfo,
+							 raw_output_process_func);
 				thread = threading.Thread(target = (worker_work), name = 'Simulation_job_%d'%jobCount);
 				thread.start();
 				self._logger.info('Simulation job %d started.', jobCount);

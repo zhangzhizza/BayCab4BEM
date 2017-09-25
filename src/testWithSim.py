@@ -1,6 +1,7 @@
 from BayCab4BEM.data_preprocessor import Preprocessor
 from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
 from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
+from BayCab4BEM.rawOutProcessFuncs import passInToOut
 from Util.logger import Logger
 import os 
 import pickle as pk;
@@ -48,44 +49,48 @@ logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = N
 cmbYArgs = ['linear', 0.5, 0.5];
 ydim = 2;
 
-xf = './iwCabData/config_1/x_hourly.csv'
-yf = './iwCabData/config_1/y_hourly.csv'
-calif = './iwCabData/config_1/config_iw_cab.xml'
+xf = './iwCabData/config_5/x_hourly.csv'
+yf = './iwCabData/config_5/y_hourly.csv'
+calif = './iwCabData/config_5/config_iw_cab.xml'
 simName = 'energyplus'
-baseIdf = './iwCabData/config_1/iw_base_hourly.idf'
+baseIdf = './iwCabData/config_5/iw_base_5min_v1.idf'
 runNum = 2;
 maxRun = 8;
-simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_1/pittsburgh.epw']
+simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_5/pittsburgh.epw']
 is_debug = True;
-outputPathBase = './mcmcRes/config_1'
+outputPathBase = './mcmcRes/config_5'
 save_dir = get_output_folder(outputPathBase, 'IW_cab_nuts');
 stanInFileName = './BayCab4BEM/pystan_models/stan_in/chong.stan'
 dftModelName = './BayCab4BEM/pystan_models/stan_compiled/chong.stan.pkl'
+raw_output_process_func = passInToOut
 
 prep = Preprocessor(logger);
 (z, xf, xc, t) = prep.getDataFromSimulation(xf, yf, calif, simName, 
                             baseIdf, runNum, maxRun, cmbYArgs, 
-                            simExe, ydim, is_debug, save_dir);
+                            simExe, ydim, is_debug, save_dir,
+                            raw_output_process_func);
+is_runMCMC = False;
 
-trace = None;
+if is_runMCMC:
+    trace = None;
 
-if mcmcPackage == "pymc3":
-	mcmcObj = MCMC4Posterior_pymc3(z, xf, xc, t, logger)
-	model = mcmcObj.build(covFuncName = 'covFuncPymcNat');
-	trace = mcmcObj.run(model, draws = 500, sampler = 'Metropolis', njobs = 1)
+    if mcmcPackage == "pymc3":
+    	mcmcObj = MCMC4Posterior_pymc3(z, xf, xc, t, logger)
+    	model = mcmcObj.build(covFuncName = 'covFuncPymcNat');
+    	trace = mcmcObj.run(model, draws = 500, sampler = 'Metropolis', njobs = 1)
 
-elif mcmcPackage == 'pystan':
-	mcmcObj = MCMC4Posterior_pystan(z, xf, xc, t, logger);
-	model = mcmcObj.build(stanInFileName = stanInFileName, 
-						  stanModelFileName = None, 
-						  dftModelName = dftModelName);
-	with open(save_dir + os.sep + 'model.pkl', 'wb') as modelfile:
-		pk.dump(model, modelfile);
+    elif mcmcPackage == 'pystan':
+    	mcmcObj = MCMC4Posterior_pystan(z, xf, xc, t, logger);
+    	model = mcmcObj.build(stanInFileName = stanInFileName, 
+    						  stanModelFileName = None, 
+    						  dftModelName = dftModelName);
+    	with open(save_dir + os.sep + 'model.pkl', 'wb') as modelfile:
+    		pk.dump(model, modelfile);
 
-	trace = mcmcObj.run(model, iterations = 500, sampler = 'NUTS', chains = 4, warmup = 250, n_jobs = 6);
-	with open(save_dir + os.sep + 'posteriors.txt', 'w') as txtfile:
-		txtfile.write(str(trace));
-	with open(save_dir + os.sep + 'trace.pkl', 'wb') as tracefile:
-		pk.dump(trace, tracefile);
+    	trace = mcmcObj.run(model, iterations = 500, sampler = 'NUTS', chains = 4, warmup = 250, n_jobs = 6);
+    	with open(save_dir + os.sep + 'posteriors.txt', 'w') as txtfile:
+    		txtfile.write(str(trace));
+    	with open(save_dir + os.sep + 'trace.pkl', 'wb') as tracefile:
+    		pk.dump(trace, tracefile);
 	
 

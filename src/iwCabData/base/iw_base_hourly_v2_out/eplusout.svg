@@ -1,0 +1,520 @@
+<?xml version="1.0"?>
+<svg width="250mm" height="200mm" viewBox="0 0   4100    3280"
+     xmlns="http://www.w3.org/2000/svg"
+     xmlns:xlink="http://www.w3.org/1999/xlink"
+     xmlns:ev="http://www.w3.org/2001/xml-events">
+<g font-family="Verdana" font-size="8" >
+  <line x1="   300" y1="  3030" x2="   300" y2="  3110" style = "stroke:silver  ;"/>
+  <line x1="   300" y1="  3030" x2="   300" y2="  3190" style = "stroke:silver  ;"/>
+  <line x1="   300" y1="  3030" x2="   300" y2="  3270" style = "stroke:silver  ;"/>
+  <line x1="   300" y1="  3110" x2="   300" y2="  3190" style = "stroke:silver  ;"/>
+  <line x1="   300" y1="  3110" x2="   300" y2="  3270" style = "stroke:silver  ;"/>
+  <line x1="   300" y1="  3190" x2="   300" y2="  3270" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="   790" x2="  3100" y2="  2270" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="   830" x2="  3100" y2="  2310" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="   870" x2="  3100" y2="  2350" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="   910" x2="  3100" y2="  2390" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="   950" x2="  3100" y2="  2430" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="   990" x2="  3100" y2="  2470" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1030" x2="  3100" y2="  2510" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1070" x2="  3100" y2="  2550" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1110" x2="  3100" y2="  2590" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1150" x2="  3100" y2="  2630" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1190" x2="  3100" y2="  2670" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1230" x2="  3100" y2="  2710" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1270" x2="  3100" y2="  2750" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1310" x2="  3100" y2="  2790" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1350" x2="  3100" y2="  2830" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1390" x2="  3100" y2="  2870" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1430" x2="  3100" y2="  2910" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1470" x2="  3100" y2="  2950" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1590" x2="  3100" y2="  1870" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1630" x2="  3100" y2="  1910" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1670" x2="  3100" y2="  1950" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1710" x2="  3100" y2="  2230" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1510" x2="  1050" y2="    30" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  1550" x2="  1050" y2="   110" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  2150" x2="   800" y2="    30" style = "stroke:silver  ;"/>
+  <line x1="  3100" y1="  2190" x2="   800" y2="   110" style = "stroke:silver  ;"/>
+  <line x1="  2700" y1="   510" x2="  3100" y2="  1990" style = "stroke:silver  ;"/>
+  <line x1="  2700" y1="   550" x2="  3100" y2="  2030" style = "stroke:silver  ;"/>
+  <line x1="  2700" y1="   590" x2="  3100" y2="  2070" style = "stroke:silver  ;"/>
+  <line x1="  2700" y1="   630" x2="  3100" y2="  2110" style = "stroke:silver  ;"/>
+  <line x1="  1100" y1="  3030" x2="  1900" y2="   190" style = "stroke:silver  ;"/>
+  <rect x="   200" y="  3020" width="   200" height="    20" style = "fill:snow; stroke: Black;"/>     1
+  <text x="   202" y="  3033">OutdoorAir:NodeList</text>
+  <rect x="   200" y="  3100" width="   200" height="    20" style = "fill:snow; stroke: Black;"/>     2
+  <text x="   202" y="  3113">OutdoorAir:NodeList</text>
+  <rect x="   200" y="  3180" width="   200" height="    20" style = "fill:snow; stroke: Black;"/>     3
+  <text x="   202" y="  3193">OutdoorAir:NodeList</text>
+  <rect x="   200" y="  3260" width="   200" height="    20" style = "fill:snow; stroke: Black;"/>     4
+  <text x="   202" y="  3273">OutdoorAir:NodeList</text>
+  <rect x="  2600" y="   740" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    10
+  <text x="  2602" y="   753">TEMPHWLOOP DEMAND SPLITTER</text>
+  <rect x="  3400" y="  1700" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    11
+  <text x="  3402" y="  1713">TEMPHWLOOP DEMAND MIXER</text>
+  <rect x="   600" y="   700" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    12
+  <text x="   602" y="   713">TEMPHWLOOP SUPPLY SPLITTER</text>
+  <rect x="  1400" y="   740" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    13
+  <text x="  1402" y="   753">TEMPHWLOOP SUPPLY MIXER</text>
+  <rect x="  2600" y="  1820" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    14
+  <text x="  2602" y="  1833">TEMPCHWLOOP DEMAND SPLITTER</text>
+  <rect x="  3400" y="  2940" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    15
+  <text x="  3402" y="  2953">TEMPCHWLOOP DEMAND MIXER</text>
+  <rect x="   600" y="  1780" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    16
+  <text x="   602" y="  1793">TEMPCHWLOOP SUPPLY SPLITTER</text>
+  <rect x="  1400" y="  1820" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    17
+  <text x="  1402" y="  1833">TEMPCHWLOOP SUPPLY MIXER</text>
+  <rect x="  2600" y="   180" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>    18
+  <text x="  2602" y="   193">OFF-YUJIE</text>
+  <rect x="  2200" y="   180" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>    37
+  <text x="  2202" y="   193">DOAS ZONE SPLITTER</text>
+  <rect x="  3000" y="   780" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    38
+  <text x="  3002" y="   793">BAS MULLION</text>
+  <rect x="  3000" y="  2260" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    39
+  <text x="  3002" y="  2273">BAS MULLION</text>
+  <rect x="  3000" y="   820" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    40
+  <text x="  3002" y="   833">OFF-VOLKER MULLION</text>
+  <rect x="  3000" y="  2300" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    41
+  <text x="  3002" y="  2313">OFF-VOLKER MULLION</text>
+  <rect x="  3000" y="   860" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    42
+  <text x="  3002" y="   873">OFF-ERICA MULLION</text>
+  <rect x="  3000" y="  2340" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    43
+  <text x="  3002" y="  2353">OFF-ERICA MULLION</text>
+  <rect x="  3000" y="   900" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    44
+  <text x="  3002" y="   913">LARGECONF1 MULLION</text>
+  <rect x="  3000" y="  2380" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    45
+  <text x="  3002" y="  2393">LARGECONF1 MULLION</text>
+  <rect x="  3000" y="   940" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    46
+  <text x="  3002" y="   953">OFF-ANNIE MULLION</text>
+  <rect x="  3000" y="  2420" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    47
+  <text x="  3002" y="  2433">OFF-ANNIE MULLION</text>
+  <rect x="  3000" y="   980" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    48
+  <text x="  3002" y="   993">LARGECONF0 MULLION</text>
+  <rect x="  3000" y="  2460" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    49
+  <text x="  3002" y="  2473">LARGECONF0 MULLION</text>
+  <rect x="  3000" y="  1020" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    50
+  <text x="  3002" y="  1033">OFF-SUREKHA MULLION</text>
+  <rect x="  3000" y="  2500" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    51
+  <text x="  3002" y="  2513">OFF-SUREKHA MULLION</text>
+  <rect x="  3000" y="  1060" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    52
+  <text x="  3002" y="  1073">STAIRNCOM MULLION</text>
+  <rect x="  3000" y="  2540" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    53
+  <text x="  3002" y="  2553">STAIRNCOM MULLION</text>
+  <rect x="  3000" y="  1100" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    54
+  <text x="  3002" y="  1113">OFF-YUJIE MULLION</text>
+  <rect x="  3000" y="  2580" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    55
+  <text x="  3002" y="  2593">OFF-YUJIE MULLION</text>
+  <rect x="  3000" y="  1140" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    56
+  <text x="  3002" y="  1153">OFF-BAPP MULLION</text>
+  <rect x="  3000" y="  2620" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    57
+  <text x="  3002" y="  2633">OFF-BAPP MULLION</text>
+  <rect x="  3000" y="  1180" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    58
+  <text x="  3002" y="  1193">OFF-WEILI MULLION</text>
+  <rect x="  3000" y="  2660" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    59
+  <text x="  3002" y="  2673">OFF-WEILI MULLION</text>
+  <rect x="  3000" y="  1220" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    60
+  <text x="  3002" y="  1233">OFF-JAMES MULLION</text>
+  <rect x="  3000" y="  2700" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    61
+  <text x="  3002" y="  2713">OFF-JAMES MULLION</text>
+  <rect x="  3000" y="  1260" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    62
+  <text x="  3002" y="  1273">OFF-VIVIAN MULLION</text>
+  <rect x="  3000" y="  2740" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    63
+  <text x="  3002" y="  2753">OFF-VIVIAN MULLION</text>
+  <rect x="  3000" y="  1300" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    64
+  <text x="  3002" y="  1313">OFF-OMER MULLION</text>
+  <rect x="  3000" y="  2780" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    65
+  <text x="  3002" y="  2793">OFF-OMER MULLION</text>
+  <rect x="  3000" y="  1340" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    66
+  <text x="  3002" y="  1353">SMALLCONF MULLION</text>
+  <rect x="  3000" y="  2820" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    67
+  <text x="  3002" y="  2833">SMALLCONF MULLION</text>
+  <rect x="  3000" y="  1380" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    68
+  <text x="  3002" y="  1393">OFF-NINA MULLION</text>
+  <rect x="  3000" y="  2860" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    69
+  <text x="  3002" y="  2873">OFF-NINA MULLION</text>
+  <rect x="  3000" y="  1420" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    70
+  <text x="  3002" y="  1433">OFF-ZHIANG MULLION</text>
+  <rect x="  3000" y="  2900" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    71
+  <text x="  3002" y="  2913">OFF-ZHIANG MULLION</text>
+  <rect x="  3000" y="  1460" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    72
+  <text x="  3002" y="  1473">OFF-CHENLU MULLION</text>
+  <rect x="  3000" y="  2940" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    73
+  <text x="  3002" y="  2953">OFF-CHENLU MULLION</text>
+  <rect x="  3000" y="  1580" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    74
+  <text x="  3002" y="  1593">BAS CHILLED CEILING</text>
+  <rect x="  3000" y="  1860" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    75
+  <text x="  3002" y="  1873">BAS CHILLED CEILING</text>
+  <rect x="  3000" y="  1620" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    76
+  <text x="  3002" y="  1633">OFF-VOLKER CHILLED CEILING</text>
+  <rect x="  3000" y="  1900" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    77
+  <text x="  3002" y="  1913">OFF-VOLKER CHILLED CEILING</text>
+  <rect x="  3000" y="  1660" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    78
+  <text x="  3002" y="  1673">OFF-ERICA CHILLED CEILING</text>
+  <rect x="  3000" y="  1940" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    79
+  <text x="  3002" y="  1953">OFF-ERICA CHILLED CEILING</text>
+  <rect x="  3000" y="  1700" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    80
+  <text x="  3002" y="  1713">KITCHEN CHILLED CEILING</text>
+  <rect x="  3000" y="  2220" width="   200" height="    20" style = "fill:orangered; stroke: Black;"/>    81
+  <text x="  3002" y="  2233">KITCHEN CHILLED CEILING</text>
+  <rect x="   600" y="   180" width="   200" height="    20" style = "fill:lawngreen; stroke: Black;"/>    82
+  <text x="   602" y="   193">DOAS AHU  OUTDOOR AIR MIXER</text>
+  <rect x="   200" y="    20" width="   200" height="    20" style = "fill:lawngreen; stroke: Black;"/>    83
+  <text  x="   202" y="    28">OFF-ZHIANG FAN COIL UNIT OUTDOOR
+  <tspan x="   202" y="    36">AIR MIXER</tspan></text>
+  <rect x="   200" y="   100" width="   200" height="    20" style = "fill:lawngreen; stroke: Black;"/>    84
+  <text  x="   202" y="   108">OFF-CHENLU FAN COIL UNIT OUTDOOR
+  <tspan x="   202" y="   116">AIR MIXER</tspan></text>
+  <rect x="  3000" y="  1500" width="   200" height="    20" style = "fill:salmon; stroke: Black;"/>    85
+  <text  x="  3002" y="  1508">OFF-ZHIANG FAN COIL UNIT HEATING
+  <tspan x="  3002" y="  1516">COIL</tspan></text>
+  <rect x="   950" y="    20" width="   200" height="    20" style = "fill:salmon; stroke: Black;"/>    86
+  <text  x="   952" y="    28">OFF-ZHIANG FAN COIL UNIT HEATING
+  <tspan x="   952" y="    36">COIL</tspan></text>
+  <rect x="  3000" y="  1540" width="   200" height="    20" style = "fill:salmon; stroke: Black;"/>    87
+  <text  x="  3002" y="  1548">OFF-CHENLU FAN COIL UNIT HEATING
+  <tspan x="  3002" y="  1556">COIL</tspan></text>
+  <rect x="   950" y="   100" width="   200" height="    20" style = "fill:salmon; stroke: Black;"/>    88
+  <text  x="   952" y="   108">OFF-CHENLU FAN COIL UNIT HEATING
+  <tspan x="   952" y="   116">COIL</tspan></text>
+  <rect x="  3000" y="  2140" width="   200" height="    20" style = "fill:skyblue; stroke: Black;"/>    89
+  <text  x="  3002" y="  2148">OFF-ZHIANG FAN COIL UNIT COOLING
+  <tspan x="  3002" y="  2156">COIL</tspan></text>
+  <rect x="   700" y="    20" width="   200" height="    20" style = "fill:skyblue; stroke: Black;"/>    90
+  <text  x="   702" y="    28">OFF-ZHIANG FAN COIL UNIT COOLING
+  <tspan x="   702" y="    36">COIL</tspan></text>
+  <rect x="  3000" y="  2180" width="   200" height="    20" style = "fill:skyblue; stroke: Black;"/>    91
+  <text  x="  3002" y="  2188">OFF-CHENLU FAN COIL UNIT COOLING
+  <tspan x="  3002" y="  2196">COIL</tspan></text>
+  <rect x="   700" y="   100" width="   200" height="    20" style = "fill:skyblue; stroke: Black;"/>    92
+  <text  x="   702" y="   108">OFF-CHENLU FAN COIL UNIT COOLING
+  <tspan x="   702" y="   116">COIL</tspan></text>
+  <rect x="   200" y="   180" width="   200" height="    20" style = "fill:silver; stroke: Black;"/>    93
+  <text x="   202" y="   193">DOAS AHU EXTRACT FAN</text>
+  <rect x="  1000" y="   180" width="   200" height="    20" style = "fill:silver; stroke: Black;"/>    94
+  <text x="  1002" y="   193">DOAS AHU SUPPLY FAN</text>
+  <rect x="  1400" y="  3020" width="   200" height="    20" style = "fill:silver; stroke: Black;"/>    95
+  <text x="  1402" y="  3033">DESICCANT REGEN FAN</text>
+  <rect x="   450" y="    20" width="   200" height="    20" style = "fill:silver; stroke: Black;"/>    96
+  <text x="   452" y="    33">OFF-ZHIANG FAN COIL UNIT SUPPLY FAN</text>
+  <rect x="   450" y="   100" width="   200" height="    20" style = "fill:silver; stroke: Black;"/>    97
+  <text x="   452" y="   113">OFF-CHENLU FAN COIL UNIT SUPPLY FAN</text>
+  <rect x="  2600" y="   500" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>    98
+  <text x="  2602" y="   513">LARGECONF1 COOLED BEAM</text>
+  <rect x="  3000" y="  1980" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>    99
+  <text x="  3002" y="  1993">LARGECONF1 COOLED BEAM</text>
+  <rect x="  2600" y="   540" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>   100
+  <text x="  2602" y="   553">OFF-ANNIE COOLED BEAM</text>
+  <rect x="  3000" y="  2020" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>   101
+  <text x="  3002" y="  2033">OFF-ANNIE COOLED BEAM</text>
+  <rect x="  2600" y="   580" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>   102
+  <text x="  2602" y="   593">LARGECONF0 COOLED BEAM</text>
+  <rect x="  3000" y="  2060" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>   103
+  <text x="  3002" y="  2073">LARGECONF0 COOLED BEAM</text>
+  <rect x="  2600" y="   620" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>   104
+  <text x="  2602" y="   633">OFF-SUREKHA COOLED BEAM</text>
+  <rect x="  3000" y="  2100" width="   200" height="    20" style = "fill:aliceblue; stroke: Black;"/>   105
+  <text x="  3002" y="  2113">OFF-SUREKHA COOLED BEAM</text>
+  <rect x="  3400" y="   620" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   106
+  <text x="  3402" y="   633">DOAS ZONE MIXER</text>
+  <rect x="   600" y="  3100" width="   200" height="    20" style = "fill:paleturquoise; stroke: Black;"/>   108
+  <text x="   602" y="  3113">DOAS AHU  HEAT RECOVERY DEVICE</text>
+  <rect x="  1000" y="  3020" width="   200" height="    20" style = "fill:paleturquoise; stroke: Black;"/>   110
+  <text x="  1002" y="  3033">DESICCANT HEAT EXCHANGER 1</text>
+  <rect x="  1800" y="   180" width="   200" height="    20" style = "fill:paleturquoise; stroke: Black;"/>   111
+  <text x="  1802" y="   193">DESICCANT HEAT EXCHANGER 1</text>
+  <rect x="  1400" y="   180" width="   200" height="    20" style = "fill:skyblue; stroke: Black;"/>   112
+  <text  x="  1402" y="   188">DOAS AHU UNITARY COOLING COIL DX
+  <tspan x="  1402" y="   196">COOLING COIL</tspan></text>
+  <rect x="   600" y="  3020" width="   200" height="    20" style = "fill:salmon; stroke: Black;"/>   114
+  <text x="   602" y="  3033">DOAS DESICCANT REGEN BURNER COIL</text>
+  <rect x="  2200" y="   740" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   115
+  <text  x="  2202" y="   748">TEMPHWLOOP DEMAND SIDE INLET BRANCH
+  <tspan x="  2202" y="   756">PIPE</tspan></text>
+  <rect x="  3000" y="   740" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   116
+  <text x="  3002" y="   753">TEMPHWLOOP DEMAND SIDE BYPASS PIPE</text>
+  <rect x="  3800" y="  1700" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   117
+  <text  x="  3802" y="  1708">TEMPHWLOOP DEMAND SIDE OUTLET
+  <tspan x="  3802" y="  1716">BRANCH PIPE</tspan></text>
+  <rect x="  1000" y="   700" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   118
+  <text x="  1002" y="   713">TEMPHWLOOP SUPPLY SIDE BYPASS PIPE</text>
+  <rect x="  1800" y="   740" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   119
+  <text  x="  1802" y="   748">TEMPHWLOOP SUPPLY SIDE OUTLET
+  <tspan x="  1802" y="   756">BRANCH PIPE</tspan></text>
+  <rect x="  2200" y="  1820" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   120
+  <text  x="  2202" y="  1828">TEMPCHWLOOP DEMAND SIDE INLET
+  <tspan x="  2202" y="  1836">BRANCH PIPE</tspan></text>
+  <rect x="  3000" y="  1820" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   121
+  <text x="  3002" y="  1833">TEMPCHWLOOP DEMAND SIDE BYPASS PIPE</text>
+  <rect x="  3800" y="  2940" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   122
+  <text  x="  3802" y="  2948">TEMPCHWLOOP DEMAND SIDE OUTLET
+  <tspan x="  3802" y="  2956">BRANCH PIPE</tspan></text>
+  <rect x="  1000" y="  1780" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   123
+  <text x="  1002" y="  1793">TEMPCHWLOOP SUPPLY SIDE BYPASS PIPE</text>
+  <rect x="  1800" y="  1820" width="   200" height="    20" style = "fill:wheat; stroke: Black;"/>   124
+  <text  x="  1802" y="  1828">TEMPCHWLOOP SUPPLY SIDE OUTLET
+  <tspan x="  1802" y="  1836">BRANCH PIPE</tspan></text>
+  <rect x="  1000" y="   740" width="   200" height="    20" style = "fill:indianred; stroke: Black;"/>   125
+  <text x="  1002" y="   753">CMU DISTRICTHEATING</text>
+  <rect x="  1000" y="  1820" width="   200" height="    20" style = "fill:powderblue; stroke: Black;"/>   126
+  <text x="  1002" y="  1833">CMU DISTRICTCOOLING</text>
+  <rect x="   200" y="   700" width="   200" height="    20" style = "fill:springgreen; stroke: Black;"/>   127
+  <text x="   202" y="   713">TEMPHWLOOP SUPPLY PUMP</text>
+  <rect x="   200" y="  1780" width="   200" height="    20" style = "fill:springgreen; stroke: Black;"/>   128
+  <text x="   202" y="  1793">TEMPCHWLOOP SUPPLY PUMP</text>
+  <rect x="  2600" y="   220" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   129
+  <text x="  2602" y="   233">OFF-BAPP</text>
+  <rect x="  2600" y="   260" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   130
+  <text x="  2602" y="   273">OFF-WEILI</text>
+  <rect x="  2600" y="   300" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   131
+  <text x="  2602" y="   313">OFF-JAMES</text>
+  <rect x="  2600" y="   340" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   132
+  <text x="  2602" y="   353">OFF-VIVIAN</text>
+  <rect x="  2600" y="   380" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   133
+  <text x="  2602" y="   393">OFF-OMER</text>
+  <rect x="  2600" y="   420" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   134
+  <text x="  2602" y="   433">SMALLCONF</text>
+  <rect x="  2600" y="   460" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   135
+  <text x="  2602" y="   473">OFF-NINA</text>
+  <rect x="  3000" y="   500" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   136
+  <text x="  3002" y="   513">LARGECONF1</text>
+  <rect x="  3000" y="   540" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   137
+  <text x="  3002" y="   553">OFF-ANNIE</text>
+  <rect x="  3000" y="   580" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   138
+  <text x="  3002" y="   593">LARGECONF0</text>
+  <rect x="  3000" y="   620" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   139
+  <text x="  3002" y="   633">OFF-SUREKHA</text>
+  <rect x="  1200" y="    20" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   140
+  <text x="  1202" y="    33">OFF-ZHIANG</text>
+  <rect x="  1200" y="   100" width="   200" height="    20" style = "fill:chartreuse; stroke: Black;"/>   141
+  <text x="  1202" y="   113">OFF-CHENLU</text>
+  <line x1="   400" y1="  3030" x2="   600" y2="  3030" style = "stroke: Black;"/>
+  <line x1="   400" y1="  3110" x2="   600" y2="  3110" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="   750" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="   790" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="   830" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="   870" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="   910" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="   950" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="   990" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1030" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1070" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1110" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1150" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1190" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1230" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1270" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1310" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1350" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1390" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1430" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1470" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1510" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1550" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1590" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1670" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   750" x2="  3000" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3600" y1="  1710" x2="  3800" y2="  1710" style = "stroke: Black;"/>
+  <line x1="   800" y1="   710" x2="  1000" y2="   710" style = "stroke: Black;"/>
+  <line x1="   800" y1="   710" x2="  1000" y2="   750" style = "stroke: Black;"/>
+  <line x1="  1600" y1="   750" x2="  1800" y2="   750" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  1830" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  1870" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  1910" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  1950" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  1990" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2030" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2070" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2110" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2150" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2190" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2230" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2270" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2310" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2350" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2390" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2430" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2470" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2510" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2550" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2590" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2670" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2710" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2750" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2790" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2830" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2870" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2910" style = "stroke: Black;"/>
+  <line x1="  2800" y1="  1830" x2="  3000" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3600" y1="  2950" x2="  3800" y2="  2950" style = "stroke: Black;"/>
+  <line x1="   800" y1="  1790" x2="  1000" y2="  1790" style = "stroke: Black;"/>
+  <line x1="   800" y1="  1790" x2="  1000" y2="  1830" style = "stroke: Black;"/>
+  <line x1="  1600" y1="  1830" x2="  1800" y2="  1830" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   190" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   230" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   270" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   310" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   350" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   390" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   430" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   470" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   510" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   550" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   590" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   190" x2="  2600" y2="   630" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   790" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2270" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   830" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2310" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   870" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2350" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   910" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2390" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   950" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2430" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   990" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2470" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1030" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2510" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1070" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2550" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1110" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2590" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1150" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2630" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1190" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2670" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1230" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2710" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1270" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2750" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1310" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2790" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1350" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2830" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1390" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2870" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1430" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2910" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1470" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2950" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1590" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1870" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1630" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1910" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1670" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1950" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1710" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2230" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="   800" y1="   190" x2="  1000" y2="   190" style = "stroke: Black;"/>
+  <line x1="   400" y1="    30" x2="   450" y2="    30" style = "stroke: Black;"/>
+  <line x1="   400" y1="   110" x2="   450" y2="   110" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1510" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  1150" y1="    30" x2="  1200" y2="    30" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1550" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  1150" y1="   110" x2="  1200" y2="   110" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2150" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="   900" y1="    30" x2="   950" y2="    30" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2190" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="   900" y1="   110" x2="   950" y2="   110" style = "stroke: Black;"/>
+  <line x1="   400" y1="   190" x2="   600" y2="   190" style = "stroke: Black;"/>
+  <line x1="  1200" y1="   190" x2="  1400" y2="   190" style = "stroke: Black;"/>
+  <line x1="   650" y1="    30" x2="   700" y2="    30" style = "stroke: Black;"/>
+  <line x1="   650" y1="   110" x2="   700" y2="   110" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   510" x2="  3000" y2="   510" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1990" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   550" x2="  3000" y2="   550" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2030" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   590" x2="  3000" y2="   590" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2070" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   630" x2="  3000" y2="   630" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  2110" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="   800" y1="  3110" x2="   600" y2="   190" style = "stroke: Black;"/>
+  <line x1="  1200" y1="  3030" x2="  1400" y2="  3030" style = "stroke: Black;"/>
+  <line x1="  2000" y1="   190" x2="  2200" y2="   190" style = "stroke: Black;"/>
+  <line x1="  1600" y1="   190" x2="  1800" y2="   190" style = "stroke: Black;"/>
+  <line x1="   800" y1="  3030" x2="  1000" y2="  3030" style = "stroke: Black;"/>
+  <line x1="  2400" y1="   750" x2="  2600" y2="   750" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   750" x2="  3400" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  1200" y1="   710" x2="  1400" y2="   750" style = "stroke: Black;"/>
+  <line x1="  2000" y1="   750" x2="  2200" y2="   750" style = "stroke: Black;"/>
+  <line x1="  2400" y1="  1830" x2="  2600" y2="  1830" style = "stroke: Black;"/>
+  <line x1="  3200" y1="  1830" x2="  3400" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  1200" y1="  1790" x2="  1400" y2="  1830" style = "stroke: Black;"/>
+  <line x1="  2000" y1="  1830" x2="  2200" y2="  1830" style = "stroke: Black;"/>
+  <line x1="  1200" y1="   750" x2="  1400" y2="   750" style = "stroke: Black;"/>
+  <line x1="  1200" y1="  1830" x2="  1400" y2="  1830" style = "stroke: Black;"/>
+  <line x1="   400" y1="   710" x2="   600" y2="   710" style = "stroke: Black;"/>
+  <line x1="   400" y1="  1790" x2="   600" y2="  1790" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   190" x2="  3000" y2="   210" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   210" x2="  3200" y2="   210" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   210" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   230" x2="  3000" y2="   250" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   250" x2="  3200" y2="   250" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   250" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   270" x2="  3000" y2="   290" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   290" x2="  3200" y2="   290" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   290" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   310" x2="  3000" y2="   330" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   330" x2="  3200" y2="   330" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   330" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   350" x2="  3000" y2="   370" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   370" x2="  3200" y2="   370" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   370" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   390" x2="  3000" y2="   410" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   410" x2="  3200" y2="   410" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   410" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   430" x2="  3000" y2="   450" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   450" x2="  3200" y2="   450" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   450" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  2800" y1="   470" x2="  3000" y2="   490" style = "stroke: Black;"/>
+  <line x1="  3000" y1="   490" x2="  3200" y2="   490" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   490" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   510" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   550" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   590" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="  3200" y1="   630" x2="  3400" y2="   630" style = "stroke: Black;"/>
+  <line x1="   200" y1="    30" x2="   175" y2="    30" style = "stroke: Black;"/>
+  <line x1="   175" y1="    30" x2="   175" y2="     0" style = "stroke: Black;"/>
+  <line x1="   175" y1="     0" x2="  1425" y2="     0" style = "stroke: Black;"/>
+  <line x1="  1425" y1="     0" x2="  1425" y2="    30" style = "stroke: Black;"/>
+  <line x1="  1425" y1="    30" x2="  1400" y2="    30" style = "stroke: Black;"/>
+  <line x1="   200" y1="   110" x2="   175" y2="   110" style = "stroke: Black;"/>
+  <line x1="   175" y1="   110" x2="   175" y2="    80" style = "stroke: Black;"/>
+  <line x1="   175" y1="    80" x2="  1425" y2="    80" style = "stroke: Black;"/>
+  <line x1="  1425" y1="    80" x2="  1425" y2="   110" style = "stroke: Black;"/>
+  <line x1="  1425" y1="   110" x2="  1400" y2="   110" style = "stroke: Black;"/>
+  <line x1="   200" y1="   190" x2="   175" y2="   190" style = "stroke: Black;"/>
+  <line x1="   175" y1="   190" x2="   175" y2="   160" style = "stroke: Black;"/>
+  <line x1="   175" y1="   160" x2="  3625" y2="   160" style = "stroke: Black;"/>
+  <line x1="  3625" y1="   160" x2="  3625" y2="   630" style = "stroke: Black;"/>
+  <line x1="  3625" y1="   630" x2="  3600" y2="   630" style = "stroke: Black;"/>
+  <line x1="   200" y1="   710" x2="   175" y2="   710" style = "stroke: Black;"/>
+  <line x1="   175" y1="   710" x2="   175" y2="   680" style = "stroke: Black;"/>
+  <line x1="   175" y1="   680" x2="  4025" y2="   680" style = "stroke: Black;"/>
+  <line x1="  4025" y1="   680" x2="  4025" y2="  1710" style = "stroke: Black;"/>
+  <line x1="  4025" y1="  1710" x2="  4000" y2="  1710" style = "stroke: Black;"/>
+  <line x1="   200" y1="  1790" x2="   175" y2="  1790" style = "stroke: Black;"/>
+  <line x1="   175" y1="  1790" x2="   175" y2="  1760" style = "stroke: Black;"/>
+  <line x1="   175" y1="  1760" x2="  4025" y2="  1760" style = "stroke: Black;"/>
+  <line x1="  4025" y1="  1760" x2="  4025" y2="  2950" style = "stroke: Black;"/>
+  <line x1="  4025" y1="  2950" x2="  4000" y2="  2950" style = "stroke: Black;"/>
+  <text x="   200" y="  3320">Unused Non-Parent Objects:</text>
+  <text x="   220" y="  3340">AIR LOOP SETPOINT MANAGER</text>
+  <text x="   220" y="  3360">HW LOOP SETPOINT MANAGER</text>
+  <text x="   220" y="  3380">CHW LOOP SETPOINT MANAGER</text>
+  <text x="   220" y="  3400">DEHUMIDIFIER SETPOINT MANAGER</text>
+  <text x="   220" y="  3420">DOAS AHU  OUTSIDE AIR SYSTEM MIXED AIR MANAGER</text>
+  <text x="   220" y="  3440">BAS</text>
+  <text x="   220" y="  3460">OFF-VOLKER</text>
+  <text x="   220" y="  3480">OFF-ERICA</text>
+  <text x="   220" y="  3500">STAIRNCOM</text>
+  <text x="   220" y="  3520">KITCHEN</text>
+  <text x="   220" y="  3540">DOAS AHU  OUTDOOR AIR CONTROLLER</text>
+  <text x="   220" y="  3560">DOAS AHU DESICCANT DEHUMIDIFIER</text>
+  <text x="   200" y="  3600">
+The following are not supported: objects related to controls, AirTerminal:SingleDuct:Uncontrolled, or ZoneHVAC:IdealLoadsAirSystem</text>
+</g>
+</svg>
