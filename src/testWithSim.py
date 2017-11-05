@@ -1,6 +1,10 @@
+mcmcPackage = 'pystan';
 from BayCab4BEM.data_preprocessor import Preprocessor
-from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
-from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
+if mcmcPackage == 'pystan':
+    from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
+elif mcmcPackage == 'pymc3':
+    from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
+
 from BayCab4BEM.rawOutProcessFuncs import passInToOut
 from Util.logger import Logger
 import os 
@@ -41,24 +45,24 @@ def get_output_folder(parent_dir, job_name):
     parent_dir = parent_dir + '-run{}'.format(experiment_id)
     return parent_dir
 
-mcmcPackage = 'pystan';
+
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = None)
 
 cmbYArgs = ['linear', 0.5, 0.5];
-ydim = 2;
+ydim = 1;
 
-xf = './iwCabData/config_5/x_hourly.csv'
-yf = './iwCabData/config_5/y_hourly.csv'
-calif = './iwCabData/config_5/config_iw_cab.xml'
+xf = './iwCabData/config_6/x_hourly.csv'
+yf = './iwCabData/config_6/y_hourly.csv'
+calif = './iwCabData/config_6/config_iw_cab.xml'
 simName = 'energyplus'
-baseIdf = './iwCabData/config_5/iw_base_5min_v1.idf'
+baseIdf = './iwCabData/config_6/iw_base_5min_v2.idf'
 runNum = 2;
 maxRun = 8;
-simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_5/pittsburgh.epw']
+simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_6/pittsburgh.epw']
 is_debug = True;
-outputPathBase = './mcmcRes/config_5'
+outputPathBase = './mcmcRes/config_6'
 save_dir = get_output_folder(outputPathBase, 'IW_cab_nuts');
 stanInFileName = './BayCab4BEM/pystan_models/stan_in/chong.stan'
 dftModelName = './BayCab4BEM/pystan_models/stan_compiled/chong.stan.pkl'
