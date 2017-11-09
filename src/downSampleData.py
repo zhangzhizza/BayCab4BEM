@@ -3,10 +3,10 @@ import numpy as np
 import os
 import csv
 
-simDataFile = './iwCabData/config_5/dataFromSim/raw/DEBUG_D_sim_org.csv'
-fieldDataFile = './iwCabData/config_5/dataFromSim/raw/DEBUG_D_field_org.csv'
-bins = 20;
-qualityThres = 0.9;
+simDataFile = './iwCabData/config_7/dataFromSim/raw/DEBUG_D_sim_org.csv'
+fieldDataFile = './iwCabData/config_7/dataFromSim/raw/DEBUG_D_field_org.csv'
+bins = 25;
+qualityThres = 0.95;
 outputPath = '.';
 dirichlet_prior = 0.5;
 

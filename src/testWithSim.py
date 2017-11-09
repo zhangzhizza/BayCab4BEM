@@ -53,16 +53,16 @@ logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = N
 cmbYArgs = ['linear', 0.5, 0.5];
 ydim = 1;
 
-xf = './iwCabData/config_6/x_hourly.csv'
-yf = './iwCabData/config_6/y_hourly.csv'
-calif = './iwCabData/config_6/config_iw_cab.xml'
+xf = './iwCabData/config_7/x_hourly.csv'
+yf = './iwCabData/config_7/y_hourly.csv'
+calif = './iwCabData/config_7/config_iw_cab.xml'
 simName = 'energyplus'
-baseIdf = './iwCabData/config_6/iw_base_5min_v2.idf'
-runNum = 2;
-maxRun = 8;
-simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_6/pittsburgh.epw']
+baseIdf = './iwCabData/config_7/iw_base_5min_v2.idf'
+runNum = 300;
+maxRun = 12;
+simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_7/pittsburgh.epw']
 is_debug = True;
-outputPathBase = './mcmcRes/config_6'
+outputPathBase = './mcmcRes/config_7'
 save_dir = get_output_folder(outputPathBase, 'IW_cab_nuts');
 stanInFileName = './BayCab4BEM/pystan_models/stan_in/chong.stan'
 dftModelName = './BayCab4BEM/pystan_models/stan_compiled/chong.stan.pkl'
