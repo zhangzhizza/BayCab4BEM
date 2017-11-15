@@ -1222,11 +1222,7 @@ Material,
 Material,
     copper_2mm,        !- Name
     Rough,                   !- Roughness
-    0.002,                   !- Thickness {m}  #CaliPara9: Mullion Inside Surface Metal Thickness.
-                                            ! #Manual calibration finds this value impacts indoor temperature
-                                            ! #profile very much. Manual calibration shows 0.002m a good choice.
-                                            ! #This value should not be too thick, otherwise it will show 
-                                            ! #significant thermal mass behavior. Range: 0.001 - 0.01m
+    0.002,                   !- Thickness {m}  #CaliPara9: Mullion Inside Surface Metal Thickness. Manual calibration finds this value impacts indoor temperature profile very much. Manual calibration shows 0.002m a good choice. This value should not be too thick, otherwise it will show significant thermal mass behavior. Range: 0.001 - 0.01m
     80,                   !- Conductivity {W/m-K} was 400
     7000,                     !- Density {kg/m3} was 8600
     460,                    !- Specific Heat {J/kg-K} was 390

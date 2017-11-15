@@ -47,15 +47,15 @@ def get_output_folder(parent_dir, job_name):
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
-fieldDataFile = './iwCabData/config_7/dataFromSim/down/b25_t95/D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
-simDataFile = './iwCabData/config_7/dataFromSim/down/b25_t95/D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
+fieldDataFile = './iwCabData/config_8/dataFromSim/down/b25_t90/D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
+simDataFile = './iwCabData/config_8/dataFromSim/down/b25_t90/D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
 cmbYArgs = [];
 ydim = 1;
 
-stanInFileName = './iwCabData/config_7/stan_in/chong_nodelta.stan'
-dftModelName = './iwCabData/config_7/stan_compiled/chong_nodelta.pkl'
+stanInFileName = './iwCabData/config_8/stan_in/chong_nodelta.stan'
+dftModelName = './iwCabData/config_8/stan_compiled/chong_nodelta.pkl'
 
-save_base_dir = './mcmcRes/config_7/fromData' 
+save_base_dir = './mcmcRes/config_8/fromData' 
 save_dir = get_output_folder(save_base_dir, 'IW_cab');
 os.makedirs(save_dir)
 
