@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<runSimulatorConfig>
+
+<calibration_parameter>
+    <name>elecEquipDensityHigh</name>
+    <keys number="3">
+        <key>ElectricEquipment</key>
+        <key>neOff Equipment 1</key>
+        <key>5</key>
+    </keys>
+    <keys number="3">
+        <key>ElectricEquipment</key>
+        <key>seOff Computing gain 1</key>
+        <key>5</key>
+    </keys>
+    <range>
+        <max>50.0</max>
+        <min>20.0</min>
+    </range>
+    <description>
+        The high electric equipment density. 
+   </description>
+</calibration_parameter>
+
+<calibration_parameter>
+    <name>elecEquipDensityLow</name>
+    <keys number="3">
+        <key>ElectricEquipment</key>
+        <key>central Equipment 1</key>
+        <key>5</key>
+    </keys>
+    <keys number="3">
+        <key>ElectricEquipment</key>
+        <key>nwOff Computing gain 1</key>
+        <key>5</key>
+    </keys>
+    <keys number="3">
+        <key>ElectricEquipment</key>
+        <key>swOff Computing gain 1</key>
+        <key>5</key>
+    </keys>
+    <keys number="3">
+        <key>ElectricEquipment</key>
+        <key>largeConf Equipment 1</key>
+        <key>5</key>
+    </keys>
+    <range>
+        <max>25.0</max>
+        <min>5.0</min>
+    </range>
+    <description>
+        The low electric equipment density. 
+   </description>
+</calibration_parameter>
+
+<calibration_parameter>
+    <name>mullMetalConductivity</name>
+    <keys number="3">
+        <key>Material</key>
+        <key>copper_2mm</key>
+        <key>3</key>
+    </keys>
+    <range>
+        <max>400</max>
+        <min>60.0</min>
+    </range>
+    <description>
+        The mull surface metal conductivity.
+   </description>
+</calibration_parameter>
+
+<calibration_parameter>
+    <name>intMass</name>
+    <keys number="3">
+        <key>InternalMass</key>
+        <key>swOff_intMass</key>
+        <key>3</key>
+    </keys>
+    <keys number="3">
+        <key>InternalMass</key>
+        <key>seOff_intMass</key>
+        <key>3</key>
+    </keys>
+    <keys number="3">
+        <key>InternalMass</key>
+        <key>nwOff_intMass</key>
+        <key>3</key>
+    </keys>
+    <keys number="3">
+        <key>InternalMass</key>
+        <key>neOff_intMass</key>
+        <key>3</key>
+    </keys>
+    <keys number="3">
+        <key>InternalMass</key>
+        <key>largeConf_intMass</key>
+        <key>3</key>
+    </keys>
+    <keys number="3">
+        <key>InternalMass</key>
+        <key>central_intMass</key>
+        <key>3</key>
+    </keys>
+    <range>
+        <max>1000.0</max>
+        <min>200.0</min>
+    </range>
+    <description>
+        The internal mass area. 
+   </description>
+</calibration_parameter>
+
+
+<calibration_parameter>
+    <name>infilRate</name>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofS1 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofS2 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofS3 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofS0 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofS4 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofN0 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofN3 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofN1 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>roofN2 Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>seOff Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>swOff Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>nwOff Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>neOff Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>largeConf Infiltration</key>
+        <key>7</key>
+    </keys>
+    <keys number="3">
+        <key>ZoneInfiltration:DesignFlowRate</key>
+        <key>central Infiltration</key>
+        <key>7</key>
+    </keys>
+   
+    
+    <range>
+        <max>0.3</max>
+        <min>0.01</min>
+    </range>
+    <description>The infiltration rate.</description>
+</calibration_parameter>
+
+<output>
+    <name>iwNorthAvgTemp</name>
+    <keys number="1">
+        <key>EMS:IW North Zone Average Temperature [C](Hourly)</key>
+    </keys>
+    <description>IW North Zones Average Temperature</description>
+</output>
+</runSimulatorConfig>
