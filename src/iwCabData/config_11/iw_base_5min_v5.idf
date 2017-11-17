@@ -1220,9 +1220,7 @@ Material,
 Material,
     rip40_batt_insulation_glass_fiber_30cm,  !- Name
     Rough,                   !- Roughness
-    0.145,                     !- Thickness {m} was 0.3 #CaliPara3: Pitched Roof Insulation Thickness, originally
-                                            ! #0.30m to match R-ip value 40 shown in the IW design drawings,
-                                            ! #manual calibration shows 0.15 a good choice. Range: 0.05m - 0.3m
+    0.145,                     !- Thickness {m} was 0.3
     0.043,                   !- Conductivity {W/m-K}
     12,                      !- Density {kg/m3}
     840,                     !- Specific Heat {J/kg-K}
@@ -1246,7 +1244,7 @@ Material,
     Rough,                   !- Roughness
     0.005,                   !- Thickness {m}
     200,                   !- Conductivity {W/m-K} #CaliPara1: Mull surface metal conductivity, manual calibration shows
-                                                   #200 a good choice. Range: 40 - 400.
+                                                 ! #200 a good choice. Range: 40 - 400
     7000,                     !- Density {kg/m3} was 8600
     460,                    !- Specific Heat {J/kg-K} was 390
     0.9,                     !- Thermal Absorptance
@@ -1301,12 +1299,8 @@ Material:InfraredTransparent,
 !-   ===========  ALL OBJECTS IN CLASS: WINDOWMATERIAL:GLAZING ===========
 WindowMaterial:SimpleGlazingSystem,
   iw_ext_win_simple, !- Name
-  2.655, !-  U-Factor #CaliPara4:External Window U, 
-                    ! #originally U-ip 0.43 (U-si 2.43) suggested by a 2006 study of Xiangyang Gong,
-                    ! #manual calibration shows U-si 1.792 a good choice. Range 1.5 - 3.0.
-  0.422, !- was 0.292 Solar Heat Gain Coefficient #CaliPara5:External Window SHGC, 
-                    ! #The 2006 study of Xiangyang Gong only says it is low-e glazing
-                    ! #manual calibration shows 0.292 a good choice. Range: 0.25 - 0.65
+  2.655, !-  U-Factor 
+  0.422, !- was 0.292 
   0.252; !-  Visible Transmittance
 
 WindowMaterial:Glazing,
@@ -4978,8 +4972,7 @@ BuildingSurface:Detailed,
     1.12,                    !- Vertex 2 Z-coordinate {m}
     12.0980456082,           !- Vertex 3 X-coordinate {m}
     39.607454966,             !- Vertex 3 Y-coordinate {m}
-    1.52,                    !- mull bot z #CaliPara3: Mull bottom z, controls the mull surface area. 
-                                           #1.52 may a good choice. Range: 1.121 - 1.72
+    1.52,                    !- mull bot z #CaliPara3: Mull bottom z, controls the mull surface area. 1.52 may a good choice. Range: 1.121 - 1.72
     12.0980456082,           !- Vertex 4 X-coordinate {m}
     19.5974550316,             !- Vertex 4 Y-coordinate {m}
     1.52;                    !- mull bot z #CaliPara3
