@@ -15969,7 +15969,7 @@ EnergyManagementSystem:Program,
       !- set inlet water temp based on IAT
       !-------------------------------------------------------------------------------------!
       !--------- Change this line to switch from automated mode or calibration mode --------!
-      SET hw_ssp_mode = 1, !- 1 is automated modes
+      SET hw_ssp_mode = 0, !- 1 is automated modes
       !-------------------------------------------------------------------------------------!
       !-------------------------------------------------------------------------------------!
       IF hw_ssp_mode == 0,
