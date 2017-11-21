@@ -1,0 +1,30 @@
+Program Version,EnergyPlus, Version 8.3.0-6d97d074ea, YMD=2017.11.16 21:56,IDD_Version 8.3.0
+   ************* IDF Context for following error/warning message:
+   ************* Note -- lines truncated at 300 characters, if necessary...
+   *************  15921 EnergyManagementSystem:Program,
+   ************* indicated Name=CtrlRadiantSys
+   ************* Only last 10 lines before error line shown.....
+   *************  16003             SET Heating_spw_stpt_PID = Heating_spw_stpt_PID + PID_Bias,
+   *************  16004             SET Heating_spw_stpt_PID = @MIN Heating_spw_stpt_PID PID_High,
+   *************  16005             SET Heating_spw_stpt_PID = @MAX Heating_spw_stpt_PID PID_Low,
+   *************  16006             SET stpt_high = 65,
+   *************  16007             !- calculate the OAT bias
+   *************  16008             SET day_oat_bias_stpt_high = 28.0,
+   *************  16009             SET day_oat_bias_stpt_low = 0.0,
+   *************  16010             SET day_oat_bias_oat_high = 7.2,
+   *************  16011             SET day_oat_bias_oat_low = -17.8,
+   *************  16012             SET day_oat_bias_stpt = day_oat_bias_stpt_high + (day_oat_bias_stpt_low - day_oat_bias_stpt_high)/(day_oat_bias_oat_high - day_oat_bias_oat_low) * (OAT - day_oat_bias_oat_low),
+   ** Warning ** IP: IDF line~16012 Alpha Argument length exceeds maximum, will be truncated=            SET day_oat_bias_stpt = day_oat_bias_stpt_high + (day_oat_bias_stpt_low - day_oat_bias_stpt_high)/(day_oat_bias_oat_high - day_oat_bias_oat_low) * (OAT - day_oat_bias_oat_low
+   **   ~~~   ** Will be processed as Alpha=SET DAY_OAT_BIAS_STPT = DAY_OAT_BIAS_STPT_HIGH + (DAY_OAT_BIAS_STPT_LOW - DAY_OAT_BIAS_STPT_HIGH)/(DAY_OAT_BIAS_OAT_HIGH - DAY_OAT_BIAS_OAT_LOW) * (OAT - DAY_OAT_BIAS_OAT_LOW)
+   ** Warning ** CheckEnvironmentSpecifications: SimulationControl specified doing weather simulations; run periods for weather file specified; but no weather file specified.
+   ** Severe  ** ProcessScheduleInput: Schedule:File="OAT_2017", File Name="@Path/x_5min.csv" cannot be opened.
+   **   ~~~   ** ... It may be open in another program (such as Excel).  Please close and try again.
+   **  Fatal  ** Program terminates due to previous condition.
+   ...Summary of Errors that led to program termination:
+   ..... Reference severe error count=1
+   ..... Last severe error=ProcessScheduleInput: Schedule:File="OAT_2017", File Name="@Path/x_5min.csv" cannot be opened.
+   ************* Warning:  Node connection errors not checked - most system input has not been read (see previous warning).
+   ************* Fatal error -- final processing.  Program exited before simulations began.  See previous error messages.
+   ************* EnergyPlus Warmup Error Summary. During Warmup: 0 Warning; 0 Severe Errors.
+   ************* EnergyPlus Sizing Error Summary. During Sizing: 0 Warning; 1 Severe Errors.
+   ************* EnergyPlus Terminated--Fatal Error Detected. 2 Warning; 1 Severe Errors; Elapsed Time=00hr 00min  0.26sec

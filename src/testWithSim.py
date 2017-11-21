@@ -50,29 +50,32 @@ LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = None)
 
-cmbYArgs = ['linear', 0.5, 0.5];
+cmbYArgs = ['pca'];
 ydim = 1;
-xf = './iwCabData/config_11/x_hourly.csv'
-yf = './iwCabData/config_11/y_hourly.csv'
-calif = './iwCabData/config_11/config_iw_cab.xml'
+xf = './iwCabData/config_12/x_hourly.csv'
+yf = './iwCabData/config_12/y_hourly.csv'
+calif = './iwCabData/config_12/config_iw_cab.xml'
 simName = 'energyplus'
-baseIdf = './iwCabData/config_11/iw_base_5min_v5.idf'
-runNum = 3;
+baseIdf = './iwCabData/config_12/iw_base_5min_v5.idf'
+runNum = 300;
 maxRun = 12;
-simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_11/pittsburgh.epw']
+simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_12/pittsburgh.epw']
 is_debug = True;
-outputPathBase = './mcmcRes/config_11'
+outputPathBase = './mcmcRes/config_12'
 save_dir = get_output_folder(outputPathBase, 'IW_cab_nuts');
-stanInFileName = './BayCab4BEM/pystan_models/stan_in/chong.stan'
-dftModelName = './BayCab4BEM/pystan_models/stan_compiled/chong.stan.pkl'
+stanInFileName = './iwCabData/config_12/stan_in/chong_nodelta.stan'
+dftModelName = './iwCabData/config_12/stan_compiled/chong_nodelta.stan.pkl'
+downSampleBin = 25;
+downSampleThres = 0.9;
 raw_output_process_func = passInToOut
 
 prep = Preprocessor(logger);
 (z, xf, xc, t) = prep.getDataFromSimulation(xf, yf, calif, simName, 
                             baseIdf, runNum, maxRun, cmbYArgs, 
                             simExe, ydim, is_debug, save_dir,
-                            raw_output_process_func);
-is_runMCMC = False;
+                            raw_output_process_func, downSampleBin, downSampleThres);
+
+is_runMCMC = True;
 
 if is_runMCMC:
     trace = None;
