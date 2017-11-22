@@ -15571,7 +15571,7 @@ EnergyManagementSystem:Sensor,
 
 EnergyManagementSystem:Sensor,
     iw_hw_ssp_2017_sensor, !Name Semco dx coil leaving temp
-    hw_sp_stpt,! Output:Variable or Output:Meter Index Key Name
+    iw_hw_ssp_2017,! Output:Variable or Output:Meter Index Key Name
     Schedule Value; ! Output:Variable or Output:Meter Name
 
 EnergyManagementSystem:Sensor,
@@ -16206,7 +16206,7 @@ EnergyManagementSystem:Actuator,
 EnergyManagementSystem:Actuator,
     Set_hw_sp_stpt, !- Name
     hw_sp_stpt, !- Actuated Component Unique Name
-    Schedule:File, !- Actuated Component Type
+    Schedule:Compact, !- Actuated Component Type
     Schedule Value ; !- Actuated Component Control Type
 
 EnergyManagementSystem:Actuator,
@@ -17071,6 +17071,14 @@ Schedule:Compact,
     For: AllDays,            !- Field 2
     Until: 24:00,            !- Field 3
     60;                       !- Field 4 
+
+Schedule:Compact,
+    hw_sp_stpt,  !- Name xxxx
+    Any Number,              !- Schedule Type Limits Name
+    Through: 12/31,          !- Field 1
+    For: AllDays,            !- Field 2
+    Until: 24:00,            !- Field 3
+    60;                       !- Field 4 
     
 Schedule:Compact,
     DOAS_htrv_op_sch,  !- Name xxxx
@@ -17226,7 +17234,7 @@ Schedule:File,
    5;                      !- Minutes per Item
 
 Schedule:File,
-   hw_sp_stpt,   !- Name
+   iw_hw_ssp_2017,   !- Name
    Any Number,           !- ScheduleType
    ! #CaliIn: change to your absolute path
    @Path/x_5min.csv,   !- Name of File
