@@ -47,10 +47,10 @@ def get_output_folder(parent_dir, job_name):
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
-fieldDataFile = './iwCabData/config_12/dataFromSim/down/b25_t90/D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
-simDataFile = './iwCabData/config_12/dataFromSim/down/b25_t90/D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
-cmbYArgs = ['linear', 0.5, 0.5];
-ydim = 2;
+fieldDataFile = './iwCabData/config_12/dataFromSim/down/b25_t90/D_field_org_cmbdY_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
+simDataFile = './iwCabData/config_12/dataFromSim/down/b25_t90/D_sim_org_cmbdY_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
+cmbYArgs = [];
+ydim = 1;
 
 stanInFileName = './iwCabData/config_12/stan_in/chong_nodelta.stan'
 dftModelName = './iwCabData/config_12/stan_compiled/chong_nodelta.pkl'
