@@ -181,11 +181,12 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 			foundObject = False;
 			foundedObject = None;
 			i = 0;
+			justEndOneObject = True;
 			for line in contents:
 				contents[i] = contents[i].replace('@Path', replacedPath) # Replace path of schedule:file
 				effectiveContent = line.strip().split('!')[0] # Ignore contents after '!'
 				effectiveContent = effectiveContent.strip().split(',')[0] # Remove tailing ','
-				if effectiveContent in tgtObjectList:
+				if (effectiveContent in tgtObjectList) and justEndOneObject:
 					foundObject = True;
 					foundedObject = effectiveContent;
 				if ";" in effectiveContent: # Apperance of ';' means the end of an object
@@ -216,6 +217,9 @@ class EnergyPlusRunWorker(SimulatorRunWorker):
 					changeIdx_list.pop(0);
 					
 				i += 1;
+				justEndOneObject = True if (len(effectiveContent) > 0 and effectiveContent[-1] == ';')
+				 else justEndOneObject; # Remember one object just ends
+				justEndOneObject = False if (len(effectiveContent) > 0 and effectiveContent[-1] != ';') else justEndOneObject; 
 		with open(thisRunIDFFilePath, 'w', encoding = 'ISO-8859-1') as idf:
 			idf.writelines(contents);
     
