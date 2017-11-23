@@ -53,7 +53,7 @@ cmbYArgs = [];
 ydim = 1;
 
 stanInFileName = './iwCabData/config_12/stan_in/chong_nodelta.stan'
-dftModelName = './iwCabData/config_12/stan_compiled/chong_nodelta.pkl'
+dftModelName = './iwCabData/config_12/stan_compiled/chong_nodelta.stan.pkl'
 
 save_base_dir = './mcmcRes/config_12/fromData' 
 save_dir = get_output_folder(save_base_dir, 'IW_cab');
