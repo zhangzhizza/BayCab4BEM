@@ -1,6 +1,9 @@
+mcmcPackage = 'pystan';
 from BayCab4BEM.data_preprocessor import Preprocessor
-from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
-from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
+if mcmcPackage == 'pymc3':
+    from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
+elif mcmcPackage == 'pystan':
+    from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
 from Util.logger import Logger
 import os 
 import pickle as pk;
@@ -40,19 +43,19 @@ def get_output_folder(parent_dir, job_name):
     parent_dir = parent_dir + '-run{}'.format(experiment_id)
     return parent_dir
 
-mcmcPackage = 'pystan';
+
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
-fieldDataFile = './iwCabData/config_3/dataFromSim/down/b20_t90/D_field_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
-simDataFile = './iwCabData/config_3/dataFromSim/down/b20_t90/D_sim_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
-cmbYArgs = [];
-ydim = 1;
+fieldDataFile = './iwCabData/config_14/dataFromSim/down/b30_t90/DEBUG_D_field_org_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
+simDataFile = './iwCabData/config_14/dataFromSim/down/b30_t90/DEBUG_D_sim_org_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
+cmbYArgs = ['pca'];
+ydim = 2;
 
-stanInFileName = './iwCabData/config_3/stan_in/theta_norm.stan'
-dftModelName = './iwCabData/config_3/stan_compiled/theta_norm.stan.pkl'
+stanInFileName = './iwCabData/config_14/stan_in/chong_nodelta_allUniformPrior.stan'
+dftModelName = './iwCabData/config_14/stan_compiled/chong_nodelta_allUniformPrior.stan.pkl'
 
-save_base_dir = './mcmcRes/config_3/fromData' 
+save_base_dir = './mcmcRes/config_14/fromData' 
 save_dir = get_output_folder(save_base_dir, 'IW_cab');
 os.makedirs(save_dir)
 

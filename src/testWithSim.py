@@ -1,6 +1,10 @@
+mcmcPackage = 'pystan';
 from BayCab4BEM.data_preprocessor import Preprocessor
-from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
-from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
+if mcmcPackage == 'pystan':
+    from BayCab4BEM.mcmc_pystan import MCMC4Posterior_pystan
+elif mcmcPackage == 'pymc3':
+    from BayCab4BEM.mcmc_pymc3 import MCMC4Posterior_pymc3
+
 from BayCab4BEM.rawOutProcessFuncs import passInToOut
 from Util.logger import Logger
 import os 
@@ -41,35 +45,37 @@ def get_output_folder(parent_dir, job_name):
     parent_dir = parent_dir + '-run{}'.format(experiment_id)
     return parent_dir
 
-mcmcPackage = 'pystan';
+
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
-logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = None)
 
-cmbYArgs = ['linear', 0.5, 0.5];
+cmbYArgs = ['pca'];
 ydim = 2;
-
-xf = './iwCabData/config_5/x_hourly.csv'
-yf = './iwCabData/config_5/y_hourly.csv'
-calif = './iwCabData/config_5/config_iw_cab.xml'
+xf = './iwCabData/config_15/x_hourly.csv'
+yf = './iwCabData/config_15/y_hourly.csv'
+calif = './iwCabData/config_15/config_iw_cab.xml'
 simName = 'energyplus'
-baseIdf = './iwCabData/config_5/iw_base_5min_v1.idf'
+baseIdf = './iwCabData/config_15/iw_base_5min_v5.idf'
 runNum = 300;
-maxRun = 8;
-simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_5/pittsburgh.epw']
+maxRun = 12;
+simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_15/pittsburgh.epw']
 is_debug = True;
-outputPathBase = './mcmcRes/config_5'
+outputPathBase = './mcmcRes/config_15'
 save_dir = get_output_folder(outputPathBase, 'IW_cab_nuts');
-stanInFileName = './BayCab4BEM/pystan_models/stan_in/chong.stan'
-dftModelName = './BayCab4BEM/pystan_models/stan_compiled/chong.stan.pkl'
+stanInFileName = './iwCabData/config_15/stan_in/chong_nodelta_allUniformPrior.stan'
+dftModelName = './iwCabData/config_15/stan_compiled/chong_nodelta_allUniformPrior.stan.pkl'
+downSampleBin = 25;
+downSampleThres = 0.9;
 raw_output_process_func = passInToOut
+logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = './mcmcRes/config_15/testWithSim.log')
 
 prep = Preprocessor(logger);
 (z, xf, xc, t) = prep.getDataFromSimulation(xf, yf, calif, simName, 
                             baseIdf, runNum, maxRun, cmbYArgs, 
                             simExe, ydim, is_debug, save_dir,
-                            raw_output_process_func);
-is_runMCMC = False;
+                            raw_output_process_func, downSampleBin, downSampleThres);
+
+is_runMCMC = True;
 
 if is_runMCMC:
     trace = None;
