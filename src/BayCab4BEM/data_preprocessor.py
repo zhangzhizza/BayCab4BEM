@@ -23,7 +23,8 @@ class Preprocessor(object):
 
 	def getDataFromSimulation(self, xf_filePath, y_filePath, caliParaConfigPath, simulatorName, 
 							baseInputFilePath, runNumber, maxRunInParallel, cmbYMethodNArgs, 
-							simulatorExeInfo, ydim, is_debug, outputPath, raw_output_process_func):
+							simulatorExeInfo, ydim, is_debug, outputPath, raw_output_process_func,
+							downSampleBin = 25, downSampleThres = 0.9):
 		"""
 		Args:
 			xf_filePath, y_filePath: str
@@ -110,10 +111,10 @@ class Preprocessor(object):
 		######### Down Sample the Data ###########
 		##########################################
 		self._logger.info('Downsampling the data...')
-		downSampler_dSim = DownSampler(d_sim, bins = 50, dirichlet_prior = 0.5);
-		(d_sim_down, d_sim_sp_hist) = downSampler_dSim.sample(stSampleSize = 50, increRatio = 1.1, qualityThres = 0.95);
-		downSampler_dField = DownSampler(d_field, bins = 50, dirichlet_prior = 0.5);
-		(d_field_down, d_field_sp_hist) = downSampler_dField.sample(stSampleSize = 50, increRatio = 1.1, qualityThres = 0.95);
+		downSampler_dSim = DownSampler(d_sim, bins = downSampleBin, dirichlet_prior = 0.5);
+		(d_sim_down, d_sim_sp_hist) = downSampler_dSim.sample(stSampleSize = 50, increRatio = 1.1, qualityThres = downSampleThres);
+		downSampler_dField = DownSampler(d_field, bins = downSampleBin, dirichlet_prior = 0.5);
+		(d_field_down, d_field_sp_hist) = downSampler_dField.sample(stSampleSize = 50, increRatio = 1.1, qualityThres = downSampleThres);
 		if is_debug:
 			self._logger.info('Saving downsampled D_sim and D_field to files...')
 			np.savetxt(outputPath + os.sep + 'DEBUG_D_sim_down.csv', d_sim_down, delimiter=",", header = D_sim_header);

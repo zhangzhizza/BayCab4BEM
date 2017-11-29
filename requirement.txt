@@ -5,3 +5,5 @@ theano
 pyMC3
 sklearn
 pystan
+matplotlib
+

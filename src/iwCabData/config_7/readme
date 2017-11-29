@@ -1,0 +1,5 @@
+this config has only 1 y: average temp.
+The idf take real mull swt and heat mode, as well as basic weather data. 
+This config change the range of infiltration to 0.01 - 0.3
+Added mull thickness.
+

@@ -1,0 +1,1 @@
+This config is same as config 13, except the idf model adds the indoor pipe (instead of adiabatic pipe) to calibrate pipe length.

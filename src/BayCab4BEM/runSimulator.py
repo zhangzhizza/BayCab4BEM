@@ -30,6 +30,9 @@ class RunSimulatorWithRandomCaliPara(object):
 		self._logger = logger;
 
 	def getHeaders(self):
+		"""
+		This function is for output display. It gets the headers of all columnes. 
+		"""
 		
 		etaHeaders = [etaConfigDict['name'] for etaConfigDict in self._outputConfig];
 		tHeaders = [tConfigDict['name'] for tConfigDict in self._calibParaConfig];
