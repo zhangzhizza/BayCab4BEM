@@ -4,10 +4,10 @@ import numpy as np
 import os
 import csv
 
-simDataFile = './iwCabData/config_14/dataFromSim/raw/DEBUG_D_sim_org.csv'
-fieldDataFile = './iwCabData/config_14/dataFromSim/raw/DEBUG_D_field_org.csv'
-bins = 30;
-qualityThres = 0.90;
+simDataFile = './iwCabData/config_15/dataFromSim/raw/DEBUG_D_sim_org.csv'
+fieldDataFile = './iwCabData/config_15/dataFromSim/raw/DEBUG_D_field_org.csv'
+bins = 25;
+qualityThres = 0.95;
 outputPath = getFileDir(simDataFile, 2) + os.sep + 'down' + os.sep + 'b%d_t%d'%(bins, qualityThres * 100);
 try:
 	os.makedirs(outputPath);

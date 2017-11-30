@@ -135,6 +135,13 @@ class Preprocessor(object):
 		Ret:
 
 		"""
+		# Get info when to comb y
+		cmbYBeforeZStd = None;
+		if len(cmbYMethodNArgs) > 0:
+			if cmbYBeforeZStd[-1] == 'before':
+				cmbYBeforeZStd = True;
+			elif cmbYBeforeZStd[-1] == 'after':
+				cmbYBeforeZStd = False;
 		# Extract y and xf
 		y = D_FIELD[:,0:ydim]
 		xf = D_FIELD[:,ydim:]
@@ -156,16 +163,23 @@ class Preprocessor(object):
 			self._logger.debug('Data shape after norm of y eta x: %s %s %s'%(y.shape, eta.shape, x.shape));
 		# Reduce dimension of z to one, if not one
 		z = np.concatenate((y,eta), axis=0);
-		self._logger.debug('Data shape before dim reduction of z: %s',z.shape);
-		if len(cmbYMethodNArgs) > 0:
-			z = cmbYMtdMapping[cmbYMethodNArgs[0]](z, *cmbYMethodNArgs[1:]);
-		if len(z.shape) > 1:
-			z = np.reshape(z, (-2,)) # Make z to be one-dim array
+		if cmbYBeforeZStd == True:
+			self._logger.debug('Data shape before dim reduction before std of z: %s',z.shape);
+			z = cmbYMtdMapping[cmbYMethodNArgs[0]](z, *cmbYMethodNArgs[1:-1]);
+			if len(z.shape) > 1:
+				z = np.reshape(z, (-2,)) # Make z to be one-dim array
 		# Standardize the z
 		self._logger.debug('z shape before standardization %s', z.shape);
 		(z_y_stand, z_eta_stand) = self._getStandardizedByEta(z[0:n], z[n:]);
 		z = np.append(z_y_stand, z_eta_stand);
 		self._logger.debug('z shape after standardization %s', z.shape);
+		# Reduce dimension of z to one, if not one
+		if cmbYBeforeZStd == False:
+			self._logger.debug('Data shape before dim reduction after std of z: %s',z.shape);
+			z = cmbYMtdMapping[cmbYMethodNArgs[0]](z, *cmbYMethodNArgs[1:-1]);
+			if len(z.shape) > 1:
+				z = np.reshape(z, (-2,)) # Make z to be one-dim array
+		self._logger.debug('Data shape after dim reduction after std of z: %s',z.shape);
 		# Extract xf and xc
 		xf = x[0:n,:]
 		xc = x[n:,:]
