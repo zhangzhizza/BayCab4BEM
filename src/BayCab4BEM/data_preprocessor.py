@@ -138,9 +138,9 @@ class Preprocessor(object):
 		# Get info when to comb y
 		cmbYBeforeZStd = None;
 		if len(cmbYMethodNArgs) > 0:
-			if cmbYBeforeZStd[-1] == 'before':
+			if cmbYMethodNArgs[-1] == 'before':
 				cmbYBeforeZStd = True;
-			elif cmbYBeforeZStd[-1] == 'after':
+			elif cmbYMethodNArgs[-1] == 'after':
 				cmbYBeforeZStd = False;
 		# Extract y and xf
 		y = D_FIELD[:,0:ydim]
