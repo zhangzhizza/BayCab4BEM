@@ -31,7 +31,7 @@ def showPlot(resDir):
 			sns.distplot(filtered, bins = bins, kde_kws = kde_kws, hist_kws = hist_kws);
 	plt.xlabel('Normalized Calibration Parameter Value', fontsize = 20);
 	plt.ylabel('Density', fontsize = 20)
-	plt.ylim(ymax=5.0);
+	#plt.ylim(ymax=5.0);
 	plt.show()
 
 def caluculateMode(resDir):
