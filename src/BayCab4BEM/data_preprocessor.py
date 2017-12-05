@@ -171,7 +171,7 @@ class Preprocessor(object):
 		# Standardize the z
 		self._logger.debug('z shape before standardization %s', z.shape);
 		(z_y_stand, z_eta_stand) = self._getStandardizedByEta(z[0:n], z[n:]);
-		z = np.append(z_y_stand, z_eta_stand);
+		z = np.append(z_y_stand, z_eta_stand, axis = 0);
 		self._logger.debug('z shape after standardization %s', z.shape);
 		# Reduce dimension of z to one, if not one
 		if cmbYBeforeZStd == False:
