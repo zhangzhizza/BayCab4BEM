@@ -6,4 +6,4 @@ pyMC3
 sklearn
 pystan
 matplotlib
-
+seaborn
