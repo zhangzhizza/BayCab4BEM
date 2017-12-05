@@ -34,14 +34,13 @@ def showPlot(resDir):
 	#plt.ylim(ymax=5.0);
 	plt.show()
 
-def caluculateMode(resDir):
+def caluculateMode(resDir, bins):
 	trace = getTrace(resDir);
 	theta = np.array(trace['theta']);
 	res = [];
 	# Calulate the mode for each trace
 	for i in range(theta.shape[1]):
 		this_trace = theta[:, i];
-		bins = 100;
 		this_hist = np.histogram(this_trace, bins = bins, range = (0,1))
 		this_mode = ((1/bins)/2.0) + (1/bins)* np.argmax(this_hist[0]);
 		res.append('theta_%d mode is %0.04f.'%(i, this_mode));
@@ -54,5 +53,5 @@ def caluculateMode(resDir):
 
 
 if __name__ == "__main__":
-	caluculateMode(sys.argv[1])
+	caluculateMode(sys.argv[1], int(sys.argv[2]))
 	showPlot(sys.argv[1])
