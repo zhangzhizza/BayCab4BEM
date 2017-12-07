@@ -47,24 +47,25 @@ def get_output_folder(parent_dir, job_name):
 LOG_LEVEL = 'DEBUG';
 LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
-fieldDataFile = './iwCabData/config_14/dataFromSim/down/b30_t90/DEBUG_D_field_org_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
-simDataFile = './iwCabData/config_14/dataFromSim/down/b30_t90/DEBUG_D_sim_org_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
-cmbYArgs = ['linear', 0.5, 0.5, 'after'];
+fieldDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_field_org_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
+simDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_sim_org_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
+cmbYArgs = ['linear', 0.0, 1.0, 'v2cmbd'];
 ydim = 2;
 
-stanInFileName = './iwCabData/config_14/stan_in/chong_nodelta_allUniformPrior.stan'
-dftModelName = './iwCabData/config_14/stan_compiled/nondefaultused.stan.pkl'
+stanInFileName = './iwCabData/config_15/stan_in/chong_nodelta_allUniformPrior.stan'
+dftModelName = './iwCabData/config_15/stan_compiled/nondefaultused.stan.pkl'
 
-save_base_dir = './mcmcRes/config_14/fromData' 
+save_base_dir = './mcmcRes/config_15/fromData' 
 save_dir = get_output_folder(save_base_dir, 'IW_cab');
 os.makedirs(save_dir)
 
 logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, save_dir + os.sep + 'log.log')
 
 prep = Preprocessor(logger);
-(z, xf, xc, t) = prep.getDataFromFile(fieldDataFile, simDataFile, cmbYArgs, ydim);
+(z, xf, xc, t, z_copy_afternorm, z_copy_beforestd) = prep.getDataFromFile(fieldDataFile, simDataFile, cmbYArgs, ydim);
 
 trace = None;
+tracefileName = 'trace_%s.pkl'%(''.join(map(str, cmbYArgs)));
 
 if mcmcPackage == "pymc3":
 	mcmcObj = MCMC4Posterior_pymc3(z, xf, xc, t, logger)
@@ -83,7 +84,7 @@ elif mcmcPackage == 'pystan':
 	trace = mcmcObj.run(model, iterations = 500, sampler = 'NUTS', chains = 4, warmup = 250, n_jobs = 6);
 	with open(save_dir + os.sep + 'posteriors.txt', 'w') as txtfile:
 		txtfile.write(str(trace));
-	with open(save_dir + os.sep + 'trace.pkl', 'wb') as tracefile:
+	with open(save_dir + os.sep + tracefileName, 'wb') as tracefile:
 		pk.dump(trace, tracefile);
 	
 

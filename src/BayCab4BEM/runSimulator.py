@@ -11,15 +11,17 @@ from multiprocessing import Lock
 
 import os
 import shutil
-import xml.etree.ElementTree
 import numpy as np
 import threading
+
+from BayCab4BEM.processConfigFile import processConfigFile;
+from BayCab4BEM.dataDenormalize import getNatValuesFromMinMaxNorm
 
 class RunSimulatorWithRandomCaliPara(object):
 
 	def __init__(self, configFilePath, simulationWorkerObject, baseInputFilePath, 
 					simulatorExeInfo, outputPath, logger):
-		configFileContent = self._processConfigFile(configFilePath);
+		configFileContent = processConfigFile(configFilePath);
 		self._calibParaConfig = configFileContent[0]; # The config info for calibration parameters
 		self._outputConfig = configFileContent[1]; # The config info for target simulation outputs
 		self._paraNum = len(self._calibParaConfig) # The number of calibration parameter
@@ -59,7 +61,7 @@ class RunSimulatorWithRandomCaliPara(object):
 		stdCaliPara = self._getLHSSampling(runNumber, self._paraNum);
 		# Random values for the calibration parameters, non-standerlized
 		paraRanges = [thisDict['range'] for thisDict in self._calibParaConfig]; 
-		natCaliPara = self._getLHSSampledRandnVars(stdCaliPara, paraRanges);
+		natCaliPara = getNatValuesFromMinMaxNorm(stdCaliPara, paraRanges);
 		# Target calibration parameter info, where each row corresponds to one parameter, 
 		# the contents of each row describe how to locate the parameter.
 		targetParaInfo = [thisDict['keys'] for thisDict in self._calibParaConfig]; # 2-D List
@@ -126,94 +128,7 @@ class RunSimulatorWithRandomCaliPara(object):
 		"""
 		return lhs(dimension, samples=sampleNum, criterion='maximin');
 
-	def _getLHSSampledRandnVars(self, stdLHSSamples, paraRanges):
-		"""
-		The method return the LHS sampled random varaibles for the calibration parameters in their
-		native value range. The conversion method is reverse min-max standarilization, i.e
-			varInNativeRange = varMin + (varMax - varMin) * stdVar
 
-		Args:
-			stdLHSSamples: numpy.ndarray
-				The LHS samples variables in the standalized way (0-1). Each row is a sample, each
-				col is a feature.
-			paraRanges: list
-				A 2-D list, where each row corresponds to one parameter. For each row, index 0 is 
-				the maximum limit, index 1 is the min limit. 
-		Ret: numpy.ndarray
-			An array where each row one sample, each col is one feature containing the LHS sampled
-			random variables in their native range. 
-		"""
-		retSampleInputs = np.copy(stdLHSSamples);
-		paraRangesArray = np.array(paraRanges);
-		paraRangeLen = paraRangesArray[:, 0] - paraRangesArray[:, 1];
-
-		for sampleRowIdx in range(stdLHSSamples.shape[0]):
-			retSampleInputs[sampleRowIdx, :] = paraRangesArray[:, 1] + \
-											np.multiply(paraRangeLen, retSampleInputs[sampleRowIdx, :]);
-		return retSampleInputs;
-
-
-	def _processConfigFile(self, configFilePath):
-		"""
-		The method process the configuration file, extract the raw contents into list. 
-
-		Args:
-			configFilePath: str
-				The configuration file path.
-
-		Ret: (python list, python list)
-			The first is a python list of dicts related to each calibration parameter info, 
-			each dict has the following structure:
-				{name: parameter name,
-				 keys: [[key content1, key content2, ...], [key content1, key content2, ...], ...],
-				 range: [max, min],
-				 description: description string}
-			The second is a python list of dicts related to each output info,
-			each dict has the following structure:
-				{name: output name,
-				 keys: [key content1, key content2, ...],
-				 description: description string}
-
-		"""
-		ret0 = [];
-		ret1 = [];
-		e =  xml.etree.ElementTree.parse(configFilePath).getroot();
-		for entry in e:
-			if entry.tag == 'calibration_parameter':
-				thisDict = {};
-				thisDict['keys'] = [];
-				for item in entry:
-					if item.tag == ('name' or 'description'):
-						thisDict[item.tag] = item.text;
-					elif item.tag == 'keys':
-						thisKeys = [];
-						keyNum = int(item.attrib['number']);
-						for keyIndex in range(keyNum):
-							thisKeys.append(item[keyIndex].text);
-						thisDict['keys'].append(thisKeys);
-					elif item.tag == 'range':
-						thisRange = [None, None];
-						for rangeIndex in range(2):
-							if item[rangeIndex].tag == 'max':
-								thisRange[0] = float(item[rangeIndex].text);
-							elif item[rangeIndex].tag == 'min':
-								thisRange[1] = float(item[rangeIndex].text);
-						thisDict['range'] = thisRange;
-				ret0.append(thisDict);
-			if entry.tag == 'output':
-				thisDict = {};
-				for item in entry:
-					if item.tag == 'name' or 'description':
-						thisDict[item.tag] = item.text;
-					if item.tag == 'keys':
-						thisKeys = [];
-						keyNum = int(item.attrib['number']);
-						for keyIndex in range(keyNum):
-							thisKeys.append(item[keyIndex].text);
-						thisDict[item.tag] = thisKeys;
-				ret1.append(thisDict);
-
-		return (ret0, ret1);
 
 class SimulatorRunWorker(object):
 	"""

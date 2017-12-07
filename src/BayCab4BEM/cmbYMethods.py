@@ -25,7 +25,6 @@ def linearCmbY(y_org, *fractionList):
 	"""
 	fractionList = np.array(fractionList);
 	singleOutY = np.sum(y_org * fractionList, axis = 1);
-
 	return singleOutY;
 
 def pcaCmbY(y_org):
