@@ -49,8 +49,9 @@ LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
 fieldDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_field_org_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
 simDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_sim_org_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
-cmbYArgs = ['linear', 0.0, 1.0, 'v2cmbd'];
+cmbYArgs = ['linear', 1.0, 0.0, 'v2cmbd'];
 ydim = 2;
+iterations = 500;
 
 stanInFileName = './iwCabData/config_15/stan_in/chong_nodelta_allUniformPrior.stan'
 dftModelName = './iwCabData/config_15/stan_compiled/nondefaultused.stan.pkl'
@@ -60,6 +61,7 @@ save_dir = get_output_folder(save_base_dir, 'IW_cab');
 os.makedirs(save_dir)
 
 logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, save_dir + os.sep + 'log.log')
+logger.info('Run config: interations %d, ydim %d, cmbYArgs %s.'%(iterations, ydim, cmbYArgs));
 
 prep = Preprocessor(logger);
 (z, xf, xc, t, z_copy_afternorm, z_copy_beforestd) = prep.getDataFromFile(fieldDataFile, simDataFile, cmbYArgs, ydim);
@@ -81,7 +83,7 @@ elif mcmcPackage == 'pystan':
 	with open(save_dir + os.sep + 'model.pkl', 'wb') as modelfile:
 		pk.dump(model, modelfile);
 
-	trace = mcmcObj.run(model, iterations = 500, sampler = 'NUTS', chains = 4, warmup = 250, n_jobs = 6);
+	trace = mcmcObj.run(model, iterations = iterations, sampler = 'NUTS', chains = 4, warmup = 250, n_jobs = 6);
 	with open(save_dir + os.sep + 'posteriors.txt', 'w') as txtfile:
 		txtfile.write(str(trace));
 	with open(save_dir + os.sep + tracefileName, 'wb') as tracefile:
