@@ -1,9 +1,9 @@
 virt_env/
 **/EnergyPlus*/
 *tmp/
-**/*Res*/
-**/*res*/
 **/raw/
+**/*_org*
+**/*simulatorRuns*
 
 
 
