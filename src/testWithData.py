@@ -49,7 +49,7 @@ LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
 fieldDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_field_org_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
 simDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_sim_org_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
-cmbYArgs = ['linear', 1.0, 0.0, 'v2cmbd'];
+cmbYArgs = ['linear', 0.0, 1.0, 'after_std'];
 ydim = 2;
 iterations = 500;
 
@@ -64,7 +64,7 @@ logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, save_dir + os.sep
 logger.info('Run config: interations %d, ydim %d, cmbYArgs %s.'%(iterations, ydim, cmbYArgs));
 
 prep = Preprocessor(logger);
-(z, xf, xc, t, z_copy_afternorm, z_copy_beforestd) = prep.getDataFromFile(fieldDataFile, simDataFile, cmbYArgs, ydim);
+(z, xf, xc, t, z_copy_afternorm, z_copy_beforestd, z_copy_afterstd) = prep.getDataFromFile(fieldDataFile, simDataFile, cmbYArgs, ydim);
 
 trace = None;
 tracefileName = 'trace_%s.pkl'%(''.join(map(str, cmbYArgs)));

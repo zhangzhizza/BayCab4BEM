@@ -136,6 +136,7 @@ class Preprocessor(object):
 
 		"""
 		# Get info when to comb y
+		cmbdYTime = cmbYMethodNArgs[-1];
 		# cmbYBeforeZStd = None;
 		#if len(cmbYMethodNArgs) > 0:
 		#	if cmbYMethodNArgs[-1] == 'before':
@@ -159,9 +160,9 @@ class Preprocessor(object):
 		tc = self._getMinMaxNormalized(tc);
 		# Combine y and eta into one z
 		z = np.concatenate((y,eta), axis=0);
-		# Reduce dimension of z to one, if not one
+		# Reduce dimension of z to one, if not one if selected combd before std
 		z_copy_afternorm = None;
-		if ydim > 1:
+		if ydim > 1 and cmbdYTime == 'before_std':
 			z = self._getMinMaxNormalized(z);
 			z_copy_afternorm = np.copy(z);
 			self._logger.debug('Data shape after min max norm of z: %s', (z.shape));
@@ -174,10 +175,17 @@ class Preprocessor(object):
 		(z_y_stand, z_eta_stand) = self._getStandardizedByEta(z[0:n], z[n:]);
 		z = np.append(z_y_stand, z_eta_stand, axis = 0);
 		self._logger.debug('z shape after standardization %s', z.shape);
+		z_copy_afterstd = np.copy(z);
+		# Combine y if selected after_std
+		if ydim > 1 and cmbdYTime == 'after_std':
+			z = cmbYMtdMapping[cmbYMethodNArgs[0]](z, *cmbYMethodNArgs[1:-1]);
+			if len(z.shape) > 1:
+				z = np.reshape(z, (-2,)) # Make z to be one-dim array
+			self._logger.debug('Data shape after combine y after std: %s', (z.shape))
 		# Extract xf and xc
 		xf = x[0:n,:]
 		xc = x[n:,:]
-		return (z, xf, xc, tc, z_copy_afternorm, z_copy_beforestd)
+		return (z, xf, xc, tc, z_copy_afternorm, z_copy_beforestd, z_copy_afterstd)
 
 	def getDataFromFile(self, fieldDataFile, simDataFile, cmbYMethodNArgs, ydim):
 		"""
