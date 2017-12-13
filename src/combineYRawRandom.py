@@ -11,8 +11,8 @@ import os;
 from BayCab4BEM.rawYCmb import randomCmb;
 from Util.io import getFileDir;
 
-rawFieldDataPath = './iwCabData/config_14/dataFromSim/raw/DEBUG_D_field_org.csv';
-rawSimDataPath = './iwCabData/config_14/dataFromSim/raw/DEBUG_D_sim_org.csv';
+rawFieldDataPath = './iwCabData/config_15/dataFromSim/raw/DEBUG_D_field_org.csv';
+rawSimDataPath = './iwCabData/config_15/dataFromSim/raw/DEBUG_D_sim_org.csv';
 yDim = 2;
 # Read file header
 d_sim_head = None;
