@@ -1,4 +1,4 @@
-theta_0 mode is 0.2900. native value is 0.0022.
+theta_0 mode was 0.2900, should be 0.22, native value was 0.0022, should be 0.0019
 theta_1 mode is 0.3500. native value is 480.0000.
-theta_2 mode is 0.5100. native value is 1.4265.
-theta_3 mode is 0.4700. native value is 0.1463.
+theta_2 mode was 0.5100, should be 0.55, native value was 1.4265, should be 1.4505.
+theta_3 mode was 0.4700, should be 0.60, native value was 0.1463, should be 0.1840
