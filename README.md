@@ -20,3 +20,11 @@ or
 ```shell
 python src/testWithData.py
 ```
+# Known issues
+1. If Pystan has compile problem, try
+```shell
+sudo apt-get install python3 python-dev python3-dev \
+     build-essential libssl-dev libffi-dev \
+     libxml2-dev libxslt1-dev zlib1g-dev \
+     python-pip
+```
