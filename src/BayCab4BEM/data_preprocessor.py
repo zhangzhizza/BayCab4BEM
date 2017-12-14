@@ -174,8 +174,6 @@ class Preprocessor(object):
 		self._logger.debug('z shape before standardization %s', z.shape);
 		(z_y_stand, z_eta_stand) = self._getStandardizedByEta(z[0:n], z[n:]);
 		z = np.append(z_y_stand, z_eta_stand, axis = 0);
-		if len(z.shape) > 1:
-			z = np.reshape(z, (-2,)) # Make z to be one-dim array
 		self._logger.debug('z shape after standardization %s', z.shape);
 		z_copy_afterstd = np.copy(z);
 		# Combine y if selected after_std
@@ -185,6 +183,8 @@ class Preprocessor(object):
 				z = np.reshape(z, (-2,)) # Make z to be one-dim array
 			self._logger.debug('Data shape after combine y after std: %s', (z.shape))
 		# Extract xf and xc
+		if len(z.shape) > 1:
+			z = np.reshape(z, (-2,)) # Make z to be one-dim array
 		xf = x[0:n,:]
 		xc = x[n:,:]
 		return (z, xf, xc, tc, z_copy_afternorm, z_copy_beforestd, z_copy_afterstd)
