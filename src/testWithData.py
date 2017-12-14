@@ -49,7 +49,7 @@ LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
 fieldDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_field_org_down.csv'#'./iwCabData/adrian_data/DATAFIELD_sample.csv'
 simDataFile = './iwCabData/config_15/dataFromSim/down/b30_t90/DEBUG_D_sim_org_down.csv'#'./iwCabData/adrian_data/DATACOMP_sample.csv'
-cmbYArgs = ['linear', 0.5, 0.5, 'after_std'];
+cmbYArgs = ['linear', 0.7, 0.3, 'before_std'];
 ydim = 2;
 iterations = 750;
 

@@ -51,23 +51,23 @@ LOG_FMT = "[%(asctime)s] %(name)s %(levelname)s:%(message)s";
 
 cmbYArgs = ['pca'];
 ydim = 2;
-xf = './iwCabData/config_15/x_hourly.csv'
-yf = './iwCabData/config_15/y_hourly.csv'
-calif = './iwCabData/config_15/config_iw_cab.xml'
+xf = './iwCabData/config_16/x_hourly.csv'
+yf = './iwCabData/config_16/y_hourly.csv'
+calif = './iwCabData/config_16/config_iw_cab.xml'
 simName = 'energyplus'
-baseIdf = './iwCabData/config_15/iw_base_5min_v5.idf'
+baseIdf = './iwCabData/config_16/iw_base_5min_v5.idf'
 runNum = 300;
 maxRun = 12;
-simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_15/pittsburgh.epw']
+simExe = ['./BayCab4BEM/EnergyPlus-8-3-0/energyplus', './iwCabData/config_16/pittsburgh.epw']
 is_debug = True;
-outputPathBase = './mcmcRes/config_15'
+outputPathBase = './mcmcRes/config_16'
 save_dir = get_output_folder(outputPathBase, 'IW_cab_nuts');
-stanInFileName = './iwCabData/config_15/stan_in/chong_nodelta_allUniformPrior.stan'
-dftModelName = './iwCabData/config_15/stan_compiled/chong_nodelta_allUniformPrior.stan.pkl'
-downSampleBin = 25;
+stanInFileName = './iwCabData/config_16/stan_in/chong_nodelta_allUniformPrior.stan'
+dftModelName = './iwCabData/config_16/stan_compiled/chong_nodelta_allUniformPrior.stan.pkl'
+downSampleBin = 30;
 downSampleThres = 0.9;
 raw_output_process_func = passInToOut
-logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = './mcmcRes/config_15/testWithSim.log')
+logger = Logger().getLogger('BC4B_logger', LOG_LEVEL, LOG_FMT, log_file_path = './mcmcRes/config_16/testWithSim.log')
 
 prep = Preprocessor(logger);
 (z, xf, xc, t) = prep.getDataFromSimulation(xf, yf, calif, simName, 
@@ -75,7 +75,7 @@ prep = Preprocessor(logger);
                             simExe, ydim, is_debug, save_dir,
                             raw_output_process_func, downSampleBin, downSampleThres);
 
-is_runMCMC = True;
+is_runMCMC = False;
 
 if is_runMCMC:
     trace = None;
