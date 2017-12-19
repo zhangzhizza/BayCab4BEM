@@ -1,0 +1,17 @@
+[2017-12-19 10:31:39,524] BC4B_logger INFO:Run config: interations 750, ydim 2, cmbYArgs ['linear', 0.4, 0.6, 'after_std'].
+[2017-12-19 10:31:39,525] BC4B_logger INFO:Reading dataset from files ./iwCabData/config_16/dataFromSim/down/b30_t90/DEBUG_D_sim_org_down.csv and ./iwCabData/config_16/dataFromSim/down/b30_t90/DEBUG_D_field_org_down.csv...
+[2017-12-19 10:31:39,542] BC4B_logger INFO:Preparing data...
+[2017-12-19 10:31:39,543] BC4B_logger INFO:Y dimension reduction method is ['linear', 0.4, 0.6, 'after_std'].
+[2017-12-19 10:31:39,544] BC4B_logger DEBUG:Data shape before norm of y xf eta xc tc: (220, 2) (220, 6) (292, 2) (292, 6) (292, 3)
+[2017-12-19 10:31:39,545] BC4B_logger DEBUG:z shape before standardization (512, 2)
+[2017-12-19 10:31:39,546] BC4B_logger DEBUG:z shape after standardization (512, 2)
+[2017-12-19 10:31:39,547] BC4B_logger DEBUG:Data shape after combine y after std: (512,)
+[2017-12-19 10:31:39,547] BC4B_logger INFO:Compiling the stan model from input file ./iwCabData/config_16/stan_in/chong_nodelta_allUniformPrior.stan ...
+[2017-12-19 10:33:23,943] BC4B_logger INFO:Dumped the stan compiled model to ./iwCabData/config_16/stan_compiled/chong_nodelta_allUniformPrior.stan.pkl
+[2017-12-19 10:33:23,976] BC4B_logger INFO:Start sampling...
+[2017-12-19 10:33:23,977] BC4B_logger INFO:Sampling configurations: 
+ Iterations: 750
+ Sampler: NUTS
+ Chains: 4
+ Warmup: 250
+ n_jobs: 6
