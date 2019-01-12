@@ -21,7 +21,7 @@ def showPlot(traceDir, modelDir):
 	theta = np.array(trace['theta']);
 	# Plot for each trace
 	colorlist = ['red', 'green', 'blue', 'm', 'orange', 'y', 'sienna']
-	sns.set(font_scale=1.4) 
+	sns.set(font_scale=1.8) 
 	bins = 100;
 	for i in range(theta.shape[1]):
 		kde_kws = {'label': r'$\theta_%d KDE$'%i,
